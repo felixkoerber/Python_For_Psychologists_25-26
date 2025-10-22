@@ -30,12 +30,7 @@ Below you will find important details regarding the course summarized in a compa
 
 #### When and where
 
-The course will officially run from October 19th, 2023 till Feburary 2nd, 2024. 
-
-```{admonition} Important Room Change!
-:class: warning
-Because a lot more people signed up than expected, there was a change in rooms: we will now meet weekly in **Seminarhaus Room SH 4.107** !
-```
+The course will officially run from October 23th, 2025 till Feburary 12nd, 2026, and will be held Seminarpavillon Room SP 2.04. 
 
 #### Can I use my calculator?
 
