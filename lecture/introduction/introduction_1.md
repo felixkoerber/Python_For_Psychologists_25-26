@@ -33,6 +33,7 @@ Not applicable, as project related work didn't start yet.
 
 - Your main task for this week is to install the following software packages on your laptop computer: python3 (miniconda), the VScode editor, and the VScode extensions, as described in the [setup section of the course website](https://cfiebach.github.io/Python_For_Psychologists_25-26/setup.html). 
 - Check whether you have a bash shell on your computer, also as described on the setup page.
+- Everything else - like downloading materials for the course - we will do together in the next session.
 - Your third task is to download the ebook 'Python for Experimental Psychologists' from the University Library website and read Chapter 1 (ca. 7 pages).
 
 ## Optional/reading/further materials

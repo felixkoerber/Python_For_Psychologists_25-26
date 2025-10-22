@@ -27,11 +27,13 @@ If you foresee any of these being a problem please reach out to one of the instr
 To get the most out of the course, we ask that you to install the following software (software/things in () are not entirely necessary but definitely great to have):
 
 - A command-line shell: [`Bash`](https://www.gnu.org/software/bash/)
-- (A version control system: [`Git`](https://git-scm.com/))
 - A remote-capable text editor: [`VSCode`](https://code.visualstudio.com/)
 - `Python 3` via [`Miniconda`](https://docs.conda.io/en/latest/miniconda.html)
-- (A [`GitHub`](https://github.com/) account)
 - A `modern web-browser`
+- (Most likely [`Discord`](https://discord.com/) for communication purposes)
+- (A version control system: [`Git`](https://git-scm.com/))
+- (A [`GitHub`](https://github.com/) account)
+
 
 If you already have all of the above software tools/packages installed (what are you even doing here?), or are confident you’ll be able to install them by the time the course starts, you can jump straight to [checking your install](#checking-your-install).
 The rest of this page provides more detail on installation procedures for each of the above elements, with separate instructions for each of the three major operating systems (`Windows`, `Mac OS`, and `Linux`).
@@ -294,7 +296,7 @@ It is a good idea to associate this with your university e-mail (if you have one
 
 ### Discord
 
-Go to https://discord.com/ and download and install Discord. Please note, that you can also use Discord through your browser if you don't want to download it. This will be the main channel of communication for the course.
+We will most likely use Discord to have a direct channel of communication for the course. Further info will follow in the next days. To install Discord, go to https://discord.com/ and download and install Discord. Please note, that you can also use Discord through your browser if you don't want to download it. 
 
 ### Modern web browser
 
