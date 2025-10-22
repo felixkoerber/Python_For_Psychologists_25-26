@@ -1,6 +1,6 @@
 # Introduction I
 
-Within the first session we'll spend a fair amount of time on talking about the structure, content, goal and implementation of the course to hopefully answer most of your questions and set the stage for the subsequent meetings! This will also entail an introduction section to get to know the folks around you. Additionally, we'll have an `installation party` where we'll will hang out and install the software required for this course together, if that has not already happened and solve potential problems/hardships you've faced with the installation process.
+Within the first session we'll spend a fair amount of time on talking about the structure, content, goal and implementation of the course to hopefully answer most of your questions and set the stage for the subsequent meetings! This will also entail an introduction section to get to know the folks around you. As first homework assignment, you will be asked to try to install the necessary software for the course until next week. 
 
 ## Topics 💡👨🏻‍🏫
 
@@ -17,7 +17,7 @@ First things first: what is going to happen in this course? What is it all about
     - Who?
     - What?
     - How?
-- get the necessary software  
+- How to get the necessary software  
 - Ask and answer questions
 - Have a great time
 
@@ -31,20 +31,10 @@ Not applicable, as project related work didn't start yet.
 
 ## tasks for subsequent meeting 🖥️✍🏽📖
 
-Not applicable, as we will ease into things.
+- Install python (miniconda) on your laptop computer. For this, please Work through the [setup section of the course website](https://cfiebach.github.io/Python_For_Psychologists_25-26/setup.html). 
+- Download the ebook 'Python for Experimental Psychologists' from the University Library website and read Chapter 1 (ca. 7 pages).
 
 ## optional/reading/further materials
 
 Here are some things that you could check out further regarding the topics discussed
 
-### The Turing Way
-
-https://the-turing-way.netlify.app/welcome.html
-
-<iframe src="https://the-turing-way.netlify.app/welcome.html" frameborder="0" width="700" height="370"></iframe>
-
-### Project TIER
-
-https://www.projecttier.org/
-
-<iframe src="https://www.projecttier.org/" frameborder="0" width="700" height="370"></iframe>
