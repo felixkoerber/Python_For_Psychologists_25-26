@@ -29,12 +29,13 @@ First things first: what is going to happen in this course? What is it all about
 
 Not applicable, as project related work didn't start yet.
 
-## tasks for subsequent meeting 🖥️✍🏽📖
+## Tasks for subsequent meeting 🖥️✍🏽📖
 
-- Install python (miniconda) on your laptop computer. For this, please Work through the [setup section of the course website](https://cfiebach.github.io/Python_For_Psychologists_25-26/setup.html). 
-- Download the ebook 'Python for Experimental Psychologists' from the University Library website and read Chapter 1 (ca. 7 pages).
+- Your main task for this week is to install the following software packages on your laptop computer: python3 (miniconda), the VScode editor, and the VScode extensions, as described in the [setup section of the course website](https://cfiebach.github.io/Python_For_Psychologists_25-26/setup.html). 
+- Check whether you have a bash shell on your computer, also as described on the setup page.
+- Your third task is to download the ebook 'Python for Experimental Psychologists' from the University Library website and read Chapter 1 (ca. 7 pages).
 
-## optional/reading/further materials
+## Optional/reading/further materials
 
 Here are some things that you could check out further regarding the topics discussed
 

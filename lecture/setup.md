@@ -1,10 +1,10 @@
 # Setup for the course
 
-There are a few things you need to get working on your machine in order to follow this course. However, don't worry as it's all gonna be [open source](), won't require a lot of storage and will be explained in detail.
+There are a few things you need to get working on your computer in order to follow this course. However, don't worry as it's all gonna be [open source](), won't require a lot of storage and will be explained in detail.
 
-Some parts and section of this course will be executable via `cloud computing` (click on the small rocket at the top right of the webpage to start [binder](https://mybinder.org/)), which mainly serves the puprose of making the lessons nice and easy to follow in an interactive manner. Although in general getting `Python` & friends to work reliably on your machine is going to be very beneficial. This holds true for the course and especially beyond. The following tools focusing open and reproducible (neuro-/data science) will therefore not only be necessary for this course, but are curated in a way that you can build your "everyday" research workflow around them. This even applies if you won't continue with `python` (I certainly hope you do) and instead work with `R` (of course also cool), `matlab` (weeeeeeeell...) or what have you. 
+Some parts and section of this course will be executable via `cloud computing` (click on the small rocket at the top right of the webpage to start [binder](https://mybinder.org/)), which mainly serves the puprose of making the lessons nice and easy to follow in an interactive manner. Although in general getting `Python` & friends to work reliably on your machine is going to be very beneficial. This holds true for the course but also beyond. The following tools focusing on open and reproducible (neuro-/data-) science) will therefore not only be necessary for this course, but may allow you to build your "everyday" research workflow around them, for example when writing your Master's thesis. This even applies if you won't continue with `python` (I certainly hope you do) and instead work with `R` (of course also cool), `matlab` (weeeeeeeell...) or what have you. 
 
-You'll find the (hopefully) comprehensive set of install instructions below. While not all of them might be totally necessary for the course, they all will help you a great deal going further and are especially useful/needed if we have to hold the course virtually due to the COVID-19 pandemic.  
+You'll find the (hopefully) comprehensive set of install instructions below. While not all of them might be totally necessary for the course, they all will help you a great deal.  
 
 Don't worry, you got this!
 
@@ -24,14 +24,13 @@ If you foresee any of these being a problem please reach out to one of the instr
 
 ## Required software
 
-To get the most out of the course, we ask that you arrive with the following software already installed (software/things in () are not entirely necessary but definitely great to have):
+To get the most out of the course, we ask that you to install the following software (software/things in () are not entirely necessary but definitely great to have):
 
 - A command-line shell: [`Bash`](https://www.gnu.org/software/bash/)
 - (A version control system: [`Git`](https://git-scm.com/))
 - A remote-capable text editor: [`VSCode`](https://code.visualstudio.com/)
 - `Python 3` via [`Miniconda`](https://docs.conda.io/en/latest/miniconda.html)
 - (A [`GitHub`](https://github.com/) account)
-- [`Discord`](https://discord.com/) (for communication purposes)
 - A `modern web-browser`
 
 If you already have all of the above software tools/packages installed (what are you even doing here?), or are confident you’ll be able to install them by the time the course starts, you can jump straight to [checking your install](#checking-your-install).
@@ -40,7 +39,7 @@ The rest of this page provides more detail on installation procedures for each o
 ### Some quick general notes on instructions
 
 - There is no difference between `Enter` and `Return` in these instructions, so just press whatever the equivalent on your keyboard is whenever one is stated
-- If you already have some of these things installed on your computer already that should (theoretically) be okay.
+- If you already have some of these things installed on your computer that should (theoretically) be okay.
   However, you need to make sure that you are able to complete the steps described in [checking your install](#checking-your-install) without issue.
   - For example, having multiple different `Python` installations on your computer can lead to incredibly frustrating issues that are very difficult to debug.
     As such, if you have already installed `Python` via some other application (not `Miniconda`/`Anaconda`), it's strongly encouraged to uninstall it before following the instructions below.
