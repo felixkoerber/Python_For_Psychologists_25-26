@@ -31,10 +31,11 @@ Not applicable, as project related work didn't start yet.
 
 ## Tasks for subsequent meeting 🖥️✍🏽📖
 
-- Your main task for this week is to install the following software packages on your laptop computer: python3 (miniconda), the VScode editor, and the VScode extensions, as described in the [setup section of the course website](https://cfiebach.github.io/Python_For_Psychologists_25-26/setup.html). 
+- Your main task for this week is to install the following software packages on your laptop computer: python3 (miniconda), the VScode editor, and the VScode extensions, as described in the [setup section of the course website](https://cfiebach.github.io/Python_For_Psychologists_25-26/setup.html). PLEASE WAIT UNTIL YOU GET MY 'GO-SIGNAL' FOR THE INSTALLATION ... we want to be sure everything works. There will also be the opportunity to consult a student from my lab when you have problems with the installation. Details will follw.
+- If you happen to have a running version of python3 and a code editor, you are good to go, even if you have different installation / software.
 - Check whether you have a bash shell on your computer, also as described on the setup page.
 - Everything else - like downloading materials for the course - we will do together in the next session.
-- Your third task is to download the ebook 'Python for Experimental Psychologists' from the University Library website and read Chapter 1 (ca. 7 pages).
+- Your third task is to download the ebook 'Python for Experimental Psychologists' from the University Library website. Have a look at Chapter 1 - but don't follow their installation instructions - use the ones from our website!
 
 ## Optional/reading/further materials
 
