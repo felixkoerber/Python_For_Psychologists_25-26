@@ -1,0 +1,15 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: bc9c58d1-bcf7-437a-9971-4653b1e1dca3
+  # title:
+  # description:
+  # keywords: []
+  # authors: []
+  github: https://github.com/felixkoerber/Python_For_Psychologists_25-26
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png

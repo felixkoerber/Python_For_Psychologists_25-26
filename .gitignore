@@ -6,3 +6,6 @@
 
 # build
 lecture/_build/*
+
+# MyST build outputs
+_build
