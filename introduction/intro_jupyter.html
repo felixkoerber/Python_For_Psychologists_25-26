@@ -1,0 +1,2299 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Introduction II - the jupyter ecosystem &amp; notebooks, first look at programming in Python &#8212; Winter Term - 2025/2026</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"TeX": {"Macros": {"N": "\\mathbb{N}", "floor": ["\\lfloor#1\\rfloor", 1], "bmat": ["\\left[\\begin{array}"], "emat": ["\\end{array}\\right]"]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'introduction/intro_jupyter';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Introduction III" href="introduction_3_new.html" />
+    <link rel="prev" title="Introduction II" href="introduction_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pfp_logo.png" class="logo__image only-light" alt="Winter Term - 2025/2026 - Home"/>
+    <script>document.write(`<img src="../_static/pfp_logo.png" class="logo__image only-dark" alt="Winter Term - 2025/2026 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../dei.html">Diversity, Equity and Inclusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Course overview &amp; procedure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Setup for the course</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../outline.html">General outline</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="introduction.html">Introduction</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="introduction_1.html">Introduction I</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="introduction_2.html">Introduction II</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Introduction II - the jupyter ecosystem &amp; notebooks, first look at programming in Python</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="introduction_3_new.html">Introduction III</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="introduction_4.html">Introduction IV</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_I.html">Introduction IV - Introduction to Python - I</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="introduction_5.html">Introduction V</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_II.html">Introduction V - Introduction to Python - II</a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="introduction_6.html">Introduction VI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="intro_python_III.html">Introduction VI - Introduction to Python III</a></li>
+
+
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../NY_recap.html">New Year recap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../experiments/experiments.html">Running experiments in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../newanalyses/DataAnalysis_lecture.html">Analysing Experimental Data in Table Form with Pandas</a></li>
+
+<li class="toctree-l1 has-children"><a class="reference internal" href="../showcases/module_showcases.html">Python module showcases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/python_numpy.html">Introduction to NumPy</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/python_scipy.html">Introduction to SciPy</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/python_scikit.html">Introduction to scikit-learn &amp; scikit-image</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/python_visualization_for_data.html">Visualization of different data types with python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../showcases/image_manipulation_nibabel.html">Using Python for neuroimaging data - NiBabel</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/image_manipulation_nilearn.html">Using Python for neuroimaging data - Nilearn</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/statistical_analyses_MRI.html">Nilearn GLM: statistical analyses of MRI in Python</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/functional_connectivity.html">Functional connectivity and resting state</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/diffusion_imaging.html">Structural connectivity and diffusion imaging</a></li>
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/machine_learning_preparation.html">Preparation Machine Learning</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/machine_learning_nilearn.html">MVPA and Searchlight with <code class="docutils literal notranslate"><span class="pre">nilearn</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/machine_learning_keras.html"><code class="docutils literal notranslate"><span class="pre">TensorFlow</span></code>/<code class="docutils literal notranslate"><span class="pre">Keras</span></code></a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../showcases/Predicting_age_with_machine_learning.html">Machine learning to predict age from rs-fmri</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../questionnaires.html">Questionnaire templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../break.html">Yoga and/or dance break</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../CoC.html">Code of Conduct</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/aylinsgl/Python_For_Psychologists_23-24/master?urlpath=tree/lecture/introduction/intro_jupyter.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/aylinsgl/Python_For_Psychologists_23-24" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/aylinsgl/Python_For_Psychologists_23-24/edit/master/lecture/introduction/intro_jupyter.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/aylinsgl/Python_For_Psychologists_23-24/issues/new?title=Issue%20on%20page%20%2Fintroduction/intro_jupyter.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/introduction/intro_jupyter.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction II - the jupyter ecosystem & notebooks, first look at programming in Python</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-we-get-started">Before we get started…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives 📍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-jupyter-beyond">To Jupyter &amp; beyond</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">To Jupyter &amp; beyond</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Before we get started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files-tab">Files Tab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-notebook">The Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#header">Header</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#body">Body</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modality">Modality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mouse-navigation">Mouse navigation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-navigation">Keyboard Navigation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-following-shortcuts-have-been-found-to-be-the-most-useful-in-day-to-day-tasks">The following shortcuts have been found to be the most useful in day-to-day tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-cells">Markdown Cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-basics">Markdown basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embedded-code">Embedded code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-flavored-markdown-gfm">Github flavored markdown (GFM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-html">General HTML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-files">Local files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#security-of-local-files">Security of local files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cells">Code cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tab-completion">Tab Completion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-help">Get Help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-code">Writing code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-interactive-workflow-input-output-history">The interactive workflow: input, output, history</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-underlying-operating-system">Accessing the underlying operating system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-functions">Magic functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-latex">Writing latex</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-normal-python-code-execution-and-errors">Running normal Python code: execution and errors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-code-in-other-languages-with-special-magics">Running code in other languages with special <code class="docutils literal notranslate"><span class="pre">%%</span></code> magics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-input-in-the-notebook">Raw Input in the notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-in-the-notebook">Plotting in the notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-notebook">Saving a Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">To Jupyter &amp; beyond</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-ii-the-jupyter-ecosystem-notebooks-first-look-at-programming-in-python">
+<h1>Introduction II - the jupyter ecosystem &amp; notebooks, first look at programming in Python<a class="headerlink" href="#introduction-ii-the-jupyter-ecosystem-notebooks-first-look-at-programming-in-python" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://fiebachlab.org/team/fiebach">Christian Fiebach</a></p>
+<p><a class="reference external" href="https://fiebachlab.org/">https://fiebachlab.org</a></p>
+<p>&#64;<a class="reference external" href="https://www.goethe-university-frankfurt.de/en?locale=en">Goethe-University Frankfurt</a></p>
+<section id="before-we-get-started">
+<h2>Before we get started…<a class="headerlink" href="#before-we-get-started" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>most of what you’ll see within this lecture was prepared by Ross Markello, Michael Notter and Peer Herholz and further adapted for this course by Peer Herholz, <a class="reference external" href="https://github.com/M-earnest">Michael Ernst</a>, and <a class="reference external" href="https://aylinkallmayer.com">Aylin Kallmayer</a>.</p></li>
+<li><p>based on Tal Yarkoni’s <a class="reference external" href="https://neurohackademy.org/course/introduction-to-python-2/">“Introduction to Python” lecture at Neurohackademy 2019</a></p></li>
+<li><p>based on <a class="reference external" href="http://github.com/jrjohansson/scientific-python-lectures">IPython notebooks from J. R. Johansson</a></p></li>
+<li><p>based on <a class="reference external" href="http://www.stavros.io/tutorials/python/">http://www.stavros.io/tutorials/python/</a> &amp; <a class="reference external" href="http://www.swaroopch.com/notes/python">http://www.swaroopch.com/notes/python</a></p></li>
+<li><p>based on <a class="github reference external" href="https://github.com/oesteban/biss2016">oesteban/biss2016</a> &amp;  <a class="github reference external" href="https://github.com/jvns/pandas-cookbook">jvns/pandas-cookbook</a></p></li>
+</ul>
+<p><a class="reference external" href="https://peerherholz.github.io/">Peer Herholz (he/him)</a><br />
+Research affiliate - <a class="reference external" href="https://neurodatascience.github.io/">NeuroDataScience lab</a> at <a class="reference external" href="https://www.mcgill.ca/neuro/">MNI</a>/<a class="reference external" href="https://www.mit.edu/">MIT</a><br />
+Member - <a class="reference external" href="https://bids-specification.readthedocs.io/en/stable/">BIDS</a>, <a class="reference external" href="https://www.repronim.org/">ReproNim</a>, <a class="reference external" href="https://brainhack.org/">Brainhack</a>, <a class="reference external" href="https://www.cneuromod.ca/">Neuromod</a>, <a class="reference external" href="https://ohbm-environment.org/">OHBM SEA-SIG</a>, <a class="reference external" href="https://sites.google.com/view/unique-neuro-ai">UNIQUE</a></p>
+<p><img align="left" src="https://raw.githubusercontent.com/G0RELLA/gorella_mwn/master/lecture/static/Twitter%20social%20icons%20-%20circle%20-%20blue.png" alt="logo" title="Twitter" width="32" height="20" /> <img align="left" src="https://raw.githubusercontent.com/G0RELLA/gorella_mwn/master/lecture/static/GitHub-Mark-120px-plus.png" alt="logo" title="Github" width="30" height="20" />     &#64;peerherholz</p>
+</section>
+<section id="objectives">
+<h2>Objectives 📍<a class="headerlink" href="#objectives" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>learn basic and efficient usage of the <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">ecosystem</span></code> &amp; <code class="docutils literal notranslate"><span class="pre">notebooks</span></code></p></li>
+<li><p>what is <code class="docutils literal notranslate"><span class="pre">Jupyter</span></code> &amp; how to utilize <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebooks</span></code></p></li>
+</ul>
+</section>
+<section id="to-jupyter-beyond">
+<h2>To Jupyter &amp; beyond<a class="headerlink" href="#to-jupyter-beyond" title="Permalink to this heading">#</a></h2>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/jupyter_ecosystem.png" alt="logo" title="jupyter" width="500" height="200" /> 
+<ul class="simple">
+<li><p>a community of people</p></li>
+<li><p>an ecosystem of open tools and standards for interactive computing</p></li>
+<li><p>language-agnostic and modular</p></li>
+<li><p>empower people to use other open tools</p></li>
+</ul>
+</section>
+<section id="id1">
+<h2>To Jupyter &amp; beyond<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/jupyter_example.png" alt="logo" title="jupyter" width="900" height="400" /> </section>
+<section id="id2">
+<h2>Before we get started<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<p>We’re going to be working in <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">notebooks</span></code> for most of this presentation!</p>
+<p>Preferentially, we will do this in a very ‘classical’ manner, i.e., in our browser’. To load yours, do the following:</p>
+<p>In your terminal, type <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">notebook</span></code> and hit <code class="docutils literal notranslate"><span class="pre">enter</span></code>. If you’re not automatically directed to a webpage, copy the URL (<code class="docutils literal notranslate"><span class="pre">https://....</span></code>) printed in the <code class="docutils literal notranslate"><span class="pre">terminal</span></code> and paste it in your <code class="docutils literal notranslate"><span class="pre">browser</span></code>. (Note that at the time of this course in 2025, there sometimes seem to be problems opening jupyter notebooks in Safari. In that case, use a different browser like Firefox.)</p>
+<p>If you are on a macOS computer and get an error message in the terminal when trying to open ‘jupyter notebook’, go to your miniconda directory (e.g., cd /opt/miniconda3 or cd ~/miniconda3 ) and then to the subfolder bin (cd bin) and run the command ‘jupyter notebook’.</p>
+<p>If you are on a windows computer and get an error message in the terminal when trying to open ‘jupyter notebook’, go to your miniconda directory (e.g. ). ‘jupyter’ is found in the subdirectory .\Scripts, so run ‘.\Scripts\jupyter.exe notebook’.</p>
+<p>Or if nothing works but you have PyCharm already installed:</p>
+<p>Open pyCharm, select “File” in the menu &gt; Open “New File or Directory …” &gt; and then select Jupyter Nnotebook &amp; give a name (e.g., pfp_learn_jupyter).</p>
+<p>Let’s first try to open a notebook in a browser and explore what we see there:</p>
+</section>
+<section id="files-tab">
+<h2>Files Tab<a class="headerlink" href="#files-tab" title="Permalink to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">files</span> <span class="pre">tab</span></code> provides an interactive view of the portion of the <code class="docutils literal notranslate"><span class="pre">filesystem</span></code> which is accessible by the <code class="docutils literal notranslate"><span class="pre">user</span></code>. This is typically rooted by the directory in which the notebook server was started.</p>
+<p>The top of the <code class="docutils literal notranslate"><span class="pre">files</span> <span class="pre">list</span></code> displays the structure of the <code class="docutils literal notranslate"><span class="pre">current</span> <span class="pre">directory</span></code>. It is possible to navigate the <code class="docutils literal notranslate"><span class="pre">filesystem</span></code> by clicking on these <code class="docutils literal notranslate"><span class="pre">breadcrumbs</span></code> or on the <code class="docutils literal notranslate"><span class="pre">directories</span></code> displayed in the <code class="docutils literal notranslate"><span class="pre">notebook</span> <span class="pre">list</span></code>.</p>
+<p>A new <code class="docutils literal notranslate"><span class="pre">notebook</span></code> can be created by clicking on the <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">dropdown</span> <span class="pre">button</span></code> at the top of the list, and selecting the desired <a class="reference external" href="https://docs.jupyter.org/en/latest/projects/kernels.html"><code class="docutils literal notranslate"><span class="pre">language</span> <span class="pre">kernel</span></code></a>. We’ll be using Python, but Kernels for a plethora of other languages exist. A comprehenisve list of Jupyter Kernels can be found <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">here</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Notebooks</span></code> can also be <code class="docutils literal notranslate"><span class="pre">uploaded</span></code> to the <code class="docutils literal notranslate"><span class="pre">current</span> <span class="pre">directory</span></code> by dragging a <code class="docutils literal notranslate"><span class="pre">notebook</span></code> file onto the list or by clicking the <code class="docutils literal notranslate"><span class="pre">Upload</span> <span class="pre">button</span></code> at the top of the list.</p>
+<img align="center" src="https://raw.githubusercontent.com/aylinsgl/Python_For_Psychologists_23-24/master/lecture/static/jupyter_tabs.png" alt="picture of jupyter files tab" title="files tab" width="600" height="100" /><section id="the-notebook">
+<h3>The Notebook<a class="headerlink" href="#the-notebook" title="Permalink to this heading">#</a></h3>
+<p>When a <code class="docutils literal notranslate"><span class="pre">notebook</span></code> is opened, a new <code class="docutils literal notranslate"><span class="pre">browser</span> <span class="pre">tab</span></code> will be created which presents the <code class="docutils literal notranslate"><span class="pre">notebook</span> <span class="pre">user</span> <span class="pre">interface</span> <span class="pre">(UI)</span></code>. This <code class="docutils literal notranslate"><span class="pre">UI</span></code> allows for <code class="docutils literal notranslate"><span class="pre">interactively</span> <span class="pre">editing</span></code> and <code class="docutils literal notranslate"><span class="pre">running</span></code> the <code class="docutils literal notranslate"><span class="pre">notebook</span> <span class="pre">document</span></code>.</p>
+<p>A new <code class="docutils literal notranslate"><span class="pre">notebook</span></code> can be created from the <code class="docutils literal notranslate"><span class="pre">dashboard</span></code> by clicking on the <code class="docutils literal notranslate"><span class="pre">Files</span> <span class="pre">tab</span></code>, followed by the <code class="docutils literal notranslate"><span class="pre">New</span> <span class="pre">dropdown</span> <span class="pre">button</span></code>, and then selecting the <code class="docutils literal notranslate"><span class="pre">language</span></code> of choice for the <code class="docutils literal notranslate"><span class="pre">notebook</span></code>.</p>
+<p>Further information on ‘jupyter notebooks’ can be found by selecting ‘Help’.</p>
+</section>
+<section id="header">
+<h3>Header<a class="headerlink" href="#header" title="Permalink to this heading">#</a></h3>
+<p>At the top of the <code class="docutils literal notranslate"><span class="pre">notebook</span> <span class="pre">document</span></code> is a <code class="docutils literal notranslate"><span class="pre">header</span></code> which contains the <code class="docutils literal notranslate"><span class="pre">notebook</span> <span class="pre">title</span></code>, a <code class="docutils literal notranslate"><span class="pre">menubar</span></code>, and <code class="docutils literal notranslate"><span class="pre">toolbar</span></code>. This <code class="docutils literal notranslate"><span class="pre">header</span></code> remains <code class="docutils literal notranslate"><span class="pre">fixed</span></code> at the top of the screen, even as the <code class="docutils literal notranslate"><span class="pre">body</span></code> of the <code class="docutils literal notranslate"><span class="pre">notebook</span></code> is <code class="docutils literal notranslate"><span class="pre">scrolled</span></code>. The <code class="docutils literal notranslate"><span class="pre">title</span></code> can be edited <code class="docutils literal notranslate"><span class="pre">in-place</span></code> (which renames the <code class="docutils literal notranslate"><span class="pre">notebook</span> <span class="pre">file</span></code>), and the <code class="docutils literal notranslate"><span class="pre">menubar</span></code> and <code class="docutils literal notranslate"><span class="pre">toolbar</span></code> contain a variety of actions which control <code class="docutils literal notranslate"><span class="pre">notebook</span> <span class="pre">navigation</span></code> and <code class="docutils literal notranslate"><span class="pre">document</span> <span class="pre">structure</span></code>.</p>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/notebook_header_4_0.png" alt="logo" title="jupyter" width="600" height="100" /> </section>
+<section id="body">
+<h3>Body<a class="headerlink" href="#body" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">body</span></code> of a <code class="docutils literal notranslate"><span class="pre">notebook</span></code> is composed of <code class="docutils literal notranslate"><span class="pre">cells</span></code>. Each <code class="docutils literal notranslate"><span class="pre">cell</span></code> contains either <code class="docutils literal notranslate"><span class="pre">markdown</span></code>, <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">input</span></code>, <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">output</span></code>, or <code class="docutils literal notranslate"><span class="pre">raw</span> <span class="pre">text</span></code>. <code class="docutils literal notranslate"><span class="pre">Cells</span></code> can be included in any order and edited at-will, allowing for a large amount of flexibility for constructing a narrative.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Markdown</span> <span class="pre">cells</span></code> - These are used to build a <code class="docutils literal notranslate"><span class="pre">nicely</span> <span class="pre">formatted</span> <span class="pre">narrative</span></code> around the <code class="docutils literal notranslate"><span class="pre">code</span></code> in the document. The majority of this lesson is composed of <code class="docutils literal notranslate"><span class="pre">markdown</span> <span class="pre">cells</span></code>.</p></li>
+<li><p>To get a <code class="docutils literal notranslate"><span class="pre">markdown</span> <span class="pre">cell</span></code> you can either select the <code class="docutils literal notranslate"><span class="pre">cell</span></code> and use <code class="docutils literal notranslate"><span class="pre">esc</span></code> + <code class="docutils literal notranslate"><span class="pre">m</span></code> or change the cell type to ‘Markdown’ via the ‘drop down menu’ in the toolbar with the navigation buttons.</p></li>
+</ul>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/notebook_body_4_0.png" alt="logo" title="jupyter" width="700" height="200" /><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Code</span> <span class="pre">cells</span></code> - These are used to define the <code class="docutils literal notranslate"><span class="pre">computational</span> <span class="pre">code</span></code> in the <code class="docutils literal notranslate"><span class="pre">document</span></code>. They come in <code class="docutils literal notranslate"><span class="pre">two</span> <span class="pre">forms</span></code>:</p>
+<ul>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">input</span> <span class="pre">cell</span></code> where the <code class="docutils literal notranslate"><span class="pre">user</span></code> types the <code class="docutils literal notranslate"><span class="pre">code</span></code> to be <code class="docutils literal notranslate"><span class="pre">executed</span></code>,</p></li>
+<li><p>and the <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">cell</span></code> which is the <code class="docutils literal notranslate"><span class="pre">representation</span></code> of the <code class="docutils literal notranslate"><span class="pre">executed</span> <span class="pre">code</span></code>. Depending on the <code class="docutils literal notranslate"><span class="pre">code</span></code>, this <code class="docutils literal notranslate"><span class="pre">representation</span></code> may be a <code class="docutils literal notranslate"><span class="pre">simple</span> <span class="pre">scalar</span> <span class="pre">value</span></code>, or something more complex like a <code class="docutils literal notranslate"><span class="pre">plot</span></code> or an <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">widget</span></code>.</p></li>
+</ul>
+</li>
+<li><p>To get a <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">cell</span></code> you can either select the <code class="docutils literal notranslate"><span class="pre">cell</span></code> and use <code class="docutils literal notranslate"><span class="pre">esc</span></code> + <code class="docutils literal notranslate"><span class="pre">y</span></code> or again via the <code class="docutils literal notranslate"><span class="pre">dropdown</span> <span class="pre">menu</span></code> in the toolbar.</p></li>
+</ul>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/notebook_body_4_0.png" alt="logo" title="jupyter" width="700" height="200" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello world&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>hello world
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Raw</span> <span class="pre">cells</span></code> - These are used when <code class="docutils literal notranslate"><span class="pre">text</span></code> needs to be included in <code class="docutils literal notranslate"><span class="pre">raw</span> <span class="pre">form</span></code>, without <code class="docutils literal notranslate"><span class="pre">execution</span></code> or <code class="docutils literal notranslate"><span class="pre">transformation</span></code>.</p></li>
+</ul>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/notebook_body_4_0.png" alt="logo" title="jupyter" width="700" height="200" />
+</section>
+<section id="modality">
+<h3>Modality<a class="headerlink" href="#modality" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">notebook</span> <span class="pre">user</span> <span class="pre">interface</span></code> is <code class="docutils literal notranslate"><span class="pre">modal</span></code>. This means that the <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> behaves <code class="docutils literal notranslate"><span class="pre">differently</span></code> depending upon the <code class="docutils literal notranslate"><span class="pre">current</span> <span class="pre">mode</span></code> of the <code class="docutils literal notranslate"><span class="pre">notebook</span></code>. A <code class="docutils literal notranslate"><span class="pre">notebook</span></code> has <code class="docutils literal notranslate"><span class="pre">two</span> <span class="pre">modes</span></code>: <code class="docutils literal notranslate"><span class="pre">edit</span></code> and <code class="docutils literal notranslate"><span class="pre">command</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">mode</span></code> is indicated by a <code class="docutils literal notranslate"><span class="pre">blue</span> <span class="pre">cell</span> <span class="pre">border</span></code> and a <code class="docutils literal notranslate"><span class="pre">prompt</span></code> showing in the <code class="docutils literal notranslate"><span class="pre">editor</span> <span class="pre">area</span></code>. (Note that the color of the frames may differ, but you will notice the difference between edit and command mode!</p>
+<p>When a <code class="docutils literal notranslate"><span class="pre">cell</span></code> is in <code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">mode</span></code>, you can type into the <code class="docutils literal notranslate"><span class="pre">cell</span></code>, like a <code class="docutils literal notranslate"><span class="pre">normal</span> <span class="pre">text</span> <span class="pre">editor</span></code>.</p>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/edit_mode.png" alt="logo" title="jupyter" width="700" height="100" /> <p><code class="docutils literal notranslate"><span class="pre">Command</span> <span class="pre">mode</span></code> is indicated by a <code class="docutils literal notranslate"><span class="pre">grey</span> <span class="pre">cell</span> <span class="pre">border</span></code>. When in <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">mode</span></code>, the structure of the <code class="docutils literal notranslate"><span class="pre">notebook</span></code> can be modified as a whole, but the <code class="docutils literal notranslate"><span class="pre">text</span></code> in <code class="docutils literal notranslate"><span class="pre">individual</span> <span class="pre">cells</span></code> cannot be changed. Most importantly, the <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> is <code class="docutils literal notranslate"><span class="pre">mapped</span></code> to a set of <code class="docutils literal notranslate"><span class="pre">shortcuts</span></code> for efficiently performing <code class="docutils literal notranslate"><span class="pre">notebook</span> <span class="pre">and</span> <span class="pre">cell</span> <span class="pre">actions</span></code>. For example, pressing <code class="docutils literal notranslate"><span class="pre">a</span></code> when in <code class="docutils literal notranslate"><span class="pre">command</span></code> mode, will <code class="docutils literal notranslate"><span class="pre">insert</span></code> a cell above the <code class="docutils literal notranslate"><span class="pre">current</span> <span class="pre">cell</span></code>, ‘b’ will insert a cell below, and ‘dd’ will delete the current cell. No modifier is needed. As an other example, there is a third way to change the type (code, markdown or raw; see above) of the current cell when in command mode, i.e., by typing the command mode shortcuts ‘y’, ‘m’ or ‘r’, respectively.</p>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/command_mode.png" alt="logo" title="jupyter" width="700" height="100" /> </section>
+<section id="mouse-navigation">
+<h3>Mouse navigation<a class="headerlink" href="#mouse-navigation" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">concept</span></code> to understand in <code class="docutils literal notranslate"><span class="pre">mouse-based</span> <span class="pre">navigation</span></code> is that <code class="docutils literal notranslate"><span class="pre">cells</span></code> can be <code class="docutils literal notranslate"><span class="pre">selected</span> <span class="pre">by</span> <span class="pre">clicking</span> <span class="pre">on</span> <span class="pre">them</span></code>. The <code class="docutils literal notranslate"><span class="pre">currently</span> <span class="pre">selected</span> <span class="pre">cell</span></code> is indicated with a <code class="docutils literal notranslate"><span class="pre">grey</span></code> or <code class="docutils literal notranslate"><span class="pre">blue</span> <span class="pre">border</span> <span class="pre">depending</span></code> on whether the <code class="docutils literal notranslate"><span class="pre">notebook</span></code> is in <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">or</span> <span class="pre">edit</span> <span class="pre">mode</span></code>. Clicking inside a <code class="docutils literal notranslate"><span class="pre">cell</span></code>’s <code class="docutils literal notranslate"><span class="pre">editor</span> <span class="pre">area</span></code> will enter <code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">mode</span></code>. Clicking on the <code class="docutils literal notranslate"><span class="pre">prompt</span></code> or the <code class="docutils literal notranslate"><span class="pre">output</span> <span class="pre">area</span></code> of a <code class="docutils literal notranslate"><span class="pre">cell</span></code> will enter <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">mode</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">second</span> <span class="pre">concept</span></code> to understand in <code class="docutils literal notranslate"><span class="pre">mouse-based</span> <span class="pre">navigation</span></code> is that <code class="docutils literal notranslate"><span class="pre">cell</span> <span class="pre">actions</span></code> usually apply to the <code class="docutils literal notranslate"><span class="pre">currently</span> <span class="pre">selected</span> <span class="pre">cell</span></code>. For example, to <code class="docutils literal notranslate"><span class="pre">run</span></code> the <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">cell</span></code>, select it and then click the  <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">this</span> <span class="pre">cell</span> <span class="pre">button</span></code> in the <code class="docutils literal notranslate"><span class="pre">toolbar</span></code>. (Alternative way to execute code in a cell is to select from the -&gt; <code class="docutils literal notranslate"><span class="pre">Run</span></code> menu the ‘Run selected code’ item.) Similarly, to <code class="docutils literal notranslate"><span class="pre">copy</span></code> a <code class="docutils literal notranslate"><span class="pre">cell</span></code>, select it and then click the <code class="docutils literal notranslate"><span class="pre">Copy</span> <span class="pre">this</span> <span class="pre">cell</span>&#160; <span class="pre">button</span></code> in the <code class="docutils literal notranslate"><span class="pre">toolbar</span></code> or the <code class="docutils literal notranslate"><span class="pre">Edit</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Copy</span> <span class="pre">Cell</span></code> menu item. With this simple pattern, it should be possible to perform nearly every <code class="docutils literal notranslate"><span class="pre">action</span></code> with the <code class="docutils literal notranslate"><span class="pre">mouse</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Markdown</span> <span class="pre">cells</span></code> have one other <code class="docutils literal notranslate"><span class="pre">state</span></code> which can be <code class="docutils literal notranslate"><span class="pre">modified</span></code> with the <code class="docutils literal notranslate"><span class="pre">mouse</span></code>. These <code class="docutils literal notranslate"><span class="pre">cells</span></code> can either be <code class="docutils literal notranslate"><span class="pre">rendered</span></code> or <code class="docutils literal notranslate"><span class="pre">unrendered</span></code>. When they are <code class="docutils literal notranslate"><span class="pre">rendered</span></code>, a nice <code class="docutils literal notranslate"><span class="pre">formatted</span> <span class="pre">representation</span></code> of the <code class="docutils literal notranslate"><span class="pre">cell</span></code>’s <code class="docutils literal notranslate"><span class="pre">contents</span></code> will be presented. When they are <code class="docutils literal notranslate"><span class="pre">unrendered</span></code>, the <code class="docutils literal notranslate"><span class="pre">raw</span> <span class="pre">text</span> <span class="pre">source</span></code> of the <code class="docutils literal notranslate"><span class="pre">cell</span></code> will be presented. To <code class="docutils literal notranslate"><span class="pre">render</span></code> the <code class="docutils literal notranslate"><span class="pre">selected</span> <span class="pre">cell</span></code> with the <code class="docutils literal notranslate"><span class="pre">mouse</span></code>, click the  <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">this</span> <span class="pre">cell</span> <span class="pre">button</span></code> in the <code class="docutils literal notranslate"><span class="pre">toolbar</span></code> or the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">selected</span> <span class="pre">cell</span></code> entry from the -&gt; <code class="docutils literal notranslate"><span class="pre">Run</span></code> menu. To <code class="docutils literal notranslate"><span class="pre">unrender</span></code> the <code class="docutils literal notranslate"><span class="pre">selected</span> <span class="pre">cell</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">click</span></code> on the <code class="docutils literal notranslate"><span class="pre">cell</span></code>.</p>
+</section>
+<section id="keyboard-navigation">
+<h3>Keyboard Navigation<a class="headerlink" href="#keyboard-navigation" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">modal</span> <span class="pre">user</span> <span class="pre">interface</span></code> of the <code class="docutils literal notranslate"><span class="pre">IPython</span> <span class="pre">Notebook</span></code> has been optimized for efficient <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> usage. This is made possible by having <code class="docutils literal notranslate"><span class="pre">two</span> <span class="pre">different</span> <span class="pre">sets</span></code> of <code class="docutils literal notranslate"><span class="pre">keyboard</span> <span class="pre">shortcuts</span></code>: one set that is <code class="docutils literal notranslate"><span class="pre">active</span> <span class="pre">in</span> <span class="pre">edit</span> <span class="pre">mode</span></code> and another in <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">mode</span></code>.</p>
+<p>The most important <code class="docutils literal notranslate"><span class="pre">keyboard</span> <span class="pre">shortcuts</span></code> are <code class="docutils literal notranslate"><span class="pre">Enter</span></code>, which enters <code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">mode</span></code>, and <code class="docutils literal notranslate"><span class="pre">Esc</span></code>, which enters <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">mode</span></code>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">mode</span></code>, most of the <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> is dedicated to <code class="docutils literal notranslate"><span class="pre">typing</span></code> into the <code class="docutils literal notranslate"><span class="pre">cell's</span> <span class="pre">editor</span></code>. Thus, in <code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">mode</span></code> there are relatively <code class="docutils literal notranslate"><span class="pre">few</span> <span class="pre">shortcuts</span></code>. In <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">mode</span></code>, the entire <code class="docutils literal notranslate"><span class="pre">keyboard</span></code> is available for <code class="docutils literal notranslate"><span class="pre">shortcuts</span></code>, so there are many more possibilities.</p>
+<p>The following images give an overview of the available <code class="docutils literal notranslate"><span class="pre">keyboard</span> <span class="pre">shortcuts</span></code>. These can viewed in the <code class="docutils literal notranslate"><span class="pre">notebook</span></code> at any time via the <code class="docutils literal notranslate"><span class="pre">Help</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Keyboard</span> <span class="pre">Shortcuts</span></code> menu item.</p>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/notebook_shortcuts_4_0.png" alt="logo" title="jupyter" width="500" height="500" /> </section>
+<section id="the-following-shortcuts-have-been-found-to-be-the-most-useful-in-day-to-day-tasks">
+<h3>The following shortcuts have been found to be the most useful in day-to-day tasks:<a class="headerlink" href="#the-following-shortcuts-have-been-found-to-be-the-most-useful-in-day-to-day-tasks" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Basic navigation: <code class="docutils literal notranslate"><span class="pre">enter</span></code>, <code class="docutils literal notranslate"><span class="pre">shift-enter</span></code>, <code class="docutils literal notranslate"><span class="pre">up/k</span></code>, <code class="docutils literal notranslate"><span class="pre">down/j</span></code></p></li>
+<li><p>Saving the <code class="docutils literal notranslate"><span class="pre">notebook</span></code>: <code class="docutils literal notranslate"><span class="pre">s</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">types</span></code>: <code class="docutils literal notranslate"><span class="pre">y</span></code>, <code class="docutils literal notranslate"><span class="pre">m</span></code>, <code class="docutils literal notranslate"><span class="pre">1-6</span></code>, <code class="docutils literal notranslate"><span class="pre">r</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">creation</span></code>: <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cell</span> <span class="pre">editing</span></code>: <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, <code class="docutils literal notranslate"><span class="pre">v</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span></code>, <code class="docutils literal notranslate"><span class="pre">z</span></code>, <code class="docutils literal notranslate"><span class="pre">ctrl+shift+-</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">operations</span></code>: <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">.</span></code></p></li>
+</ul>
+<p>Additionally, you should get in the habit of using <code class="docutils literal notranslate"><span class="pre">Tab</span></code> to auto-complete your code. This not only speeds up things, but also makes sure that your variable and file names or the specific function you want to use is actually spelled correctly. In <code class="docutils literal notranslate"><span class="pre">edit</span> <span class="pre">mode</span></code> you should further get used to use the <code class="docutils literal notranslate"><span class="pre">Ctrl</span> <span class="pre">+</span> <span class="pre">down/up/left/right</span></code> shortcuts to quickly navigate trough your code cells (on macOS, use ‘Cmd’ button instead of ‘Ctrl’).</p>
+</section>
+<section id="markdown-cells">
+<h3>Markdown Cells<a class="headerlink" href="#markdown-cells" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Text</span></code> can be added to <code class="docutils literal notranslate"><span class="pre">IPython</span> <span class="pre">Notebooks</span></code> using <code class="docutils literal notranslate"><span class="pre">Markdown</span> <span class="pre">cells</span></code>. <code class="docutils literal notranslate"><span class="pre">Markdown</span></code> is a popular <code class="docutils literal notranslate"><span class="pre">markup</span> <span class="pre">language</span></code> that is a <code class="docutils literal notranslate"><span class="pre">superset</span> <span class="pre">of</span> <span class="pre">HTML</span></code>. Its specification (note also ‘basics’ and ‘syntax’ tabs) can be found here:</p>
+<p><a class="reference external" href="http://daringfireball.net/projects/markdown/">http://daringfireball.net/projects/markdown/</a></p>
+<p>You can view the <code class="docutils literal notranslate"><span class="pre">source</span></code> of a <code class="docutils literal notranslate"><span class="pre">cell</span></code> by <code class="docutils literal notranslate"><span class="pre">double</span> <span class="pre">clicking</span></code> on it, or while the <code class="docutils literal notranslate"><span class="pre">cell</span></code> is selected in <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">mode</span></code>, press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> to edit it. Once a <code class="docutils literal notranslate"><span class="pre">cell</span></code> has been <code class="docutils literal notranslate"><span class="pre">edited</span></code>, use <code class="docutils literal notranslate"><span class="pre">Shift-Enter</span></code> to <code class="docutils literal notranslate"><span class="pre">re-render</span></code> it.</p>
+</section>
+<section id="markdown-basics">
+<h3>Markdown basics<a class="headerlink" href="#markdown-basics" title="Permalink to this heading">#</a></h3>
+<p>You can make text <em>italic</em> or <strong>bold</strong>.</p>
+<p>You can build nested itemized or enumerated lists:</p>
+<ul class="simple">
+<li><p>One</p>
+<ul>
+<li><p>Sublist</p>
+<ul>
+<li><p>This</p></li>
+</ul>
+</li>
+<li><p>Sublist
+- That
+- The other thing</p></li>
+</ul>
+</li>
+<li><p>Two</p>
+<ul>
+<li><p>Sublist</p></li>
+</ul>
+</li>
+<li><p>Three</p>
+<ul>
+<li><p>Sublist</p></li>
+</ul>
+</li>
+</ul>
+<p>Now another list:</p>
+<ol class="arabic simple">
+<li><p>Here we go</p>
+<ol class="arabic simple">
+<li><p>Sublist</p></li>
+<li><p>Sublist</p></li>
+</ol>
+</li>
+<li><p>There we go</p></li>
+<li><p>Now this</p></li>
+</ol>
+<p>You can add horizontal rules:</p>
+<hr class="docutils" />
+<p>Here is a blockquote (i.e the <a class="reference external" href="https://en.wikipedia.org/wiki/Zen_of_Python">Zen of Python</a>) :</p>
+<blockquote>
+<div><p>Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren’t special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one– and preferably only one –obvious way to do it.
+Although that way may not be obvious at first unless you’re Dutch.
+Now is better than never.
+Although never is often better than <em>right</em> now.
+If the implementation is hard to explain, it’s a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea – let’s do more of those!</p>
+</div></blockquote>
+<p>You can add headings using Markdown’s syntax:</p>
+<pre>
+# Heading 1
+
+# Heading 2
+
+## Heading 2.1
+
+## Heading 2.2
+</pre></section>
+<section id="embedded-code">
+<h3>Embedded code<a class="headerlink" href="#embedded-code" title="Permalink to this heading">#</a></h3>
+<p>You can embed code meant for illustration instead of execution in Python:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>def f(x):
+    &quot;&quot;&quot;a docstring&quot;&quot;&quot;
+    return x**2
+</pre></div>
+</div>
+<p>or other languages:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if (i=0; i&lt;n; i++) {
+  printf(&quot;hello %d\n&quot;, i);
+  x += 4;
+}
+</pre></div>
+</div>
+</section>
+<section id="github-flavored-markdown-gfm">
+<h3>Github flavored markdown (GFM)<a class="headerlink" href="#github-flavored-markdown-gfm" title="Permalink to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">Notebook</span> <span class="pre">webapp</span></code> supports <code class="docutils literal notranslate"><span class="pre">Github</span> <span class="pre">flavored</span> <span class="pre">markdown</span></code> meaning that you can use <code class="docutils literal notranslate"><span class="pre">triple</span> <span class="pre">backticks</span></code> for <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">blocks</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Hello World&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Gives</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Hello World&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And a table like this :</p>
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>This</p></th>
+<th class="head"><p>is</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>a</p></td>
+<td><p>table</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>or A nice HTML Table</p>
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>This</p></th>
+<th class="head"><p>is</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>a</p></td>
+<td><p>table</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="general-html">
+<h3>General HTML<a class="headerlink" href="#general-html" title="Permalink to this heading">#</a></h3>
+<p>Because <code class="docutils literal notranslate"><span class="pre">Markdown</span></code> is a <code class="docutils literal notranslate"><span class="pre">superset</span> <span class="pre">of</span> <span class="pre">HTML</span></code> you can even add things like <code class="docutils literal notranslate"><span class="pre">HTML</span> <span class="pre">tables</span></code>:</p>
+<table>
+<tr>
+<th>Header 1</th>
+<th>Header 2</th>
+</tr>
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</table></section>
+<section id="local-files">
+<h3>Local files<a class="headerlink" href="#local-files" title="Permalink to this heading">#</a></h3>
+<p>If you have <code class="docutils literal notranslate"><span class="pre">local</span> <span class="pre">files</span></code> in your <code class="docutils literal notranslate"><span class="pre">Notebook</span> <span class="pre">directory</span></code>, you can refer to these <code class="docutils literal notranslate"><span class="pre">files</span></code> in <code class="docutils literal notranslate"><span class="pre">Markdown</span> <span class="pre">cells</span></code> directly:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[subdirectory/]&lt;filename&gt;
+</pre></div>
+</div>
+<p>For example, in the <code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">folder</span></code>, we have the <code class="docutils literal notranslate"><span class="pre">logo</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;img src=&quot;static/pfp_logo.png&quot; /&gt;
+</pre></div>
+</div>
+<img src="https://raw.githubusercontent.com/aylinsgl/Python_For_Psychologists_23-24/master/lecture/static/pfp_logo.png" width=300 />
+<p>These do not <code class="docutils literal notranslate"><span class="pre">embed</span></code> the data into the <code class="docutils literal notranslate"><span class="pre">notebook</span> <span class="pre">file</span></code>, and require that the <code class="docutils literal notranslate"><span class="pre">files</span></code> exist when you are viewing the <code class="docutils literal notranslate"><span class="pre">notebook</span></code>.</p>
+</section>
+<section id="security-of-local-files">
+<h3>Security of local files<a class="headerlink" href="#security-of-local-files" title="Permalink to this heading">#</a></h3>
+<p>Note that this means that the <code class="docutils literal notranslate"><span class="pre">IPython</span> <span class="pre">notebook</span> <span class="pre">server</span></code> also acts as a <code class="docutils literal notranslate"><span class="pre">generic</span> <span class="pre">file</span> <span class="pre">server</span></code> for <code class="docutils literal notranslate"><span class="pre">files</span></code> inside the same <code class="docutils literal notranslate"><span class="pre">tree</span></code> as your <code class="docutils literal notranslate"><span class="pre">notebooks</span></code>. Access is not granted outside the <code class="docutils literal notranslate"><span class="pre">notebook</span></code> folder so you have strict control over what <code class="docutils literal notranslate"><span class="pre">files</span></code> are <code class="docutils literal notranslate"><span class="pre">visible</span></code>, but for this reason <strong>it is highly recommended that you do not run the notebook server with a notebook directory at a high level in your filesystem (e.g. your home directory)</strong>.</p>
+</section>
+<section id="code-cells">
+<h3>Code cells<a class="headerlink" href="#code-cells" title="Permalink to this heading">#</a></h3>
+<p>When executing code in <code class="docutils literal notranslate"><span class="pre">IPython</span></code>, all valid <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">syntax</span></code> works as-is, but <code class="docutils literal notranslate"><span class="pre">IPython</span></code> provides a number of <code class="docutils literal notranslate"><span class="pre">features</span></code> designed to make the <code class="docutils literal notranslate"><span class="pre">interactive</span> <span class="pre">experience</span></code> more <code class="docutils literal notranslate"><span class="pre">fluid</span></code> and <code class="docutils literal notranslate"><span class="pre">efficient</span></code>. First, we need to explain how to run <code class="docutils literal notranslate"><span class="pre">cells</span></code>. Try to run the <code class="docutils literal notranslate"><span class="pre">cell</span></code> below!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi! This is a cell. Click on it and press the ▶ button above to run it&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi! This is a cell. Click on it and press the ▶ button above to run it
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also run a cell with <code class="docutils literal notranslate"><span class="pre">Ctrl+Enter</span></code> (macOS: <code class="docutils literal notranslate"><span class="pre">Cmd+Enter</span></code>) or <code class="docutils literal notranslate"><span class="pre">Shift+Enter</span></code>. Experiment a bit with that.</p>
+</section>
+<section id="tab-completion">
+<h3>Tab Completion<a class="headerlink" href="#tab-completion" title="Permalink to this heading">#</a></h3>
+<p>One of the most useful things about <code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebook</span></code> is its tab completion.</p>
+<p>Try this: click just after <code class="docutils literal notranslate"><span class="pre">read_csv</span></code>( in the cell below and press <code class="docutils literal notranslate"><span class="pre">Shift+Tab</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A help window should pop up with the documentation for the <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function.</p>
+<p>This can be very useful.</p>
+<p>Okay, let’s try <code class="docutils literal notranslate"><span class="pre">tab</span> <span class="pre">completion</span></code> for <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">names</span></code>!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">r</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You should see something like this:</p>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/jupyter_function-completion.png" alt="logo" title="jupyter" width="300" height="200" /> </section>
+</section>
+<section id="get-help">
+<h2>Get Help<a class="headerlink" href="#get-help" title="Permalink to this heading">#</a></h2>
+<p>There’s an additional way on how you can reach an extensive help box for example for python functions. Instead, you can also use <code class="docutils literal notranslate"><span class="pre">obj</span></code>? or <code class="docutils literal notranslate"><span class="pre">obj</span></code>?? to get help or more help for an object, where ‘obj’ is a placeholder for example for a function like ‘read_csv’ from the ‘pandas’ package.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>pd.read_csv<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Red">Signature:</span>
+pd<span class=" -Color -Color-Blue">.</span>read_csv<span class=" -Color -Color-Blue">(</span>
+    filepath_or_buffer<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;FilePath | ReadCsvBuffer[bytes] | ReadCsvBuffer[str]&#39;,</span>
+    <span class=" -Color -Color-Blue">*,</span>
+    sep<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str | None | lib.NoDefault&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&lt;</span>no_default<span class=" -Color -Color-Blue">&gt;,</span>
+    delimiter<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str | None | lib.NoDefault&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    header<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&quot;int | Sequence[int] | None | Literal[&#39;infer&#39;]&quot;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&#39;infer&#39;,</span>
+    names<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;Sequence[Hashable] | None | lib.NoDefault&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&lt;</span>no_default<span class=" -Color -Color-Blue">&gt;,</span>
+    index_col<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;IndexLabel | Literal[False] | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    usecols<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;UsecolsArgType&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    dtype<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;DtypeArg | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    engine<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;CSVEngine | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    converters<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;Mapping[Hashable, Callable] | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    true_values<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;list | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    false_values<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;list | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    skipinitialspace<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    skiprows<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;list[int] | int | Callable[[Hashable], bool] | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    skipfooter<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;int&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Cyan">0</span><span class=" -Color -Color-Blue">,</span>
+    nrows<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;int | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    na_values<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;Hashable | Iterable[Hashable] | Mapping[Hashable, Iterable[Hashable]] | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    keep_default_na<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    na_filter<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    verbose<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool | lib.NoDefault&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&lt;</span>no_default<span class=" -Color -Color-Blue">&gt;,</span>
+    skip_blank_lines<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    parse_dates<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool | Sequence[Hashable] | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    infer_datetime_format<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool | lib.NoDefault&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&lt;</span>no_default<span class=" -Color -Color-Blue">&gt;,</span>
+    keep_date_col<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool | lib.NoDefault&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&lt;</span>no_default<span class=" -Color -Color-Blue">&gt;,</span>
+    date_parser<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;Callable | lib.NoDefault&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&lt;</span>no_default<span class=" -Color -Color-Blue">&gt;,</span>
+    date_format<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str | dict[Hashable, str] | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    dayfirst<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    cache_dates<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    iterator<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    chunksize<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;int | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    compression<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;CompressionOptions&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&#39;infer&#39;,</span>
+    thousands<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    decimal<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&#39;.&#39;,</span>
+    lineterminator<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    quotechar<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&#39;&quot;&#39;,</span>
+    quoting<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;int&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Cyan">0</span><span class=" -Color -Color-Blue">,</span>
+    doublequote<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    escapechar<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    comment<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    encoding<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    encoding_errors<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&#39;strict&#39;,</span>
+    dialect<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str | csv.Dialect | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    on_bad_lines<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;str&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&#39;error&#39;,</span>
+    delim_whitespace<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool | lib.NoDefault&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&lt;</span>no_default<span class=" -Color -Color-Blue">&gt;,</span>
+    low_memory<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    memory_map<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;bool&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    float_precision<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&quot;Literal[&#39;high&#39;, &#39;legacy&#39;] | None&quot;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    storage_options<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;StorageOptions | None&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    dtype_backend<span class=" -Color -Color-Blue">:</span> <span class=" -Color -Color-Blue">&#39;DtypeBackend | lib.NoDefault&#39;</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&lt;</span>no_default<span class=" -Color -Color-Blue">&gt;,</span>
+<span class=" -Color -Color-Blue">)</span> <span class=" -Color -Color-Blue">-&gt;</span> <span class=" -Color -Color-Blue">&#39;DataFrame | TextFileReader&#39;</span>
+<span class=" -Color -Color-Red">Docstring:</span>
+Read a comma-separated values (csv) file into DataFrame.
+
+Also supports optionally iterating or breaking of the file
+into chunks.
+
+Additional help can be found in the online docs for
+`IO Tools &lt;https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html&gt;`_.
+
+Parameters
+----------
+filepath_or_buffer : str, path object or file-like object
+    Any valid string path is acceptable. The string could be a URL. Valid
+    URL schemes include http, ftp, s3, gs, and file. For file URLs, a host is
+    expected. A local file could be: file://localhost/path/to/table.csv.
+
+    If you want to pass in a path object, pandas accepts any ``os.PathLike``.
+
+    By file-like object, we refer to objects with a ``read()`` method, such as
+    a file handle (e.g. via builtin ``open`` function) or ``StringIO``.
+sep : str, default &#39;,&#39;
+    Character or regex pattern to treat as the delimiter. If ``sep=None``, the
+    C engine cannot automatically detect
+    the separator, but the Python parsing engine can, meaning the latter will
+    be used and automatically detect the separator from only the first valid
+    row of the file by Python&#39;s builtin sniffer tool, ``csv.Sniffer``.
+    In addition, separators longer than 1 character and different from
+    ``&#39;\s+&#39;`` will be interpreted as regular expressions and will also force
+    the use of the Python parsing engine. Note that regex delimiters are prone
+    to ignoring quoted data. Regex example: ``&#39;\r\t&#39;``.
+delimiter : str, optional
+    Alias for ``sep``.
+header : int, Sequence of int, &#39;infer&#39; or None, default &#39;infer&#39;
+    Row number(s) containing column labels and marking the start of the
+    data (zero-indexed). Default behavior is to infer the column names: if no ``names``
+    are passed the behavior is identical to ``header=0`` and column
+    names are inferred from the first line of the file, if column
+    names are passed explicitly to ``names`` then the behavior is identical to
+    ``header=None``. Explicitly pass ``header=0`` to be able to
+    replace existing names. The header can be a list of integers that
+    specify row locations for a :class:`~pandas.MultiIndex` on the columns
+    e.g. ``[0, 1, 3]``. Intervening rows that are not specified will be
+    skipped (e.g. 2 in this example is skipped). Note that this
+    parameter ignores commented lines and empty lines if
+    ``skip_blank_lines=True``, so ``header=0`` denotes the first line of
+    data rather than the first line of the file.
+names : Sequence of Hashable, optional
+    Sequence of column labels to apply. If the file contains a header row,
+    then you should explicitly pass ``header=0`` to override the column names.
+    Duplicates in this list are not allowed.
+index_col : Hashable, Sequence of Hashable or False, optional
+  Column(s) to use as row label(s), denoted either by column labels or column
+  indices.  If a sequence of labels or indices is given, :class:`~pandas.MultiIndex`
+  will be formed for the row labels.
+
+  Note: ``index_col=False`` can be used to force pandas to *not* use the first
+  column as the index, e.g., when you have a malformed file with delimiters at
+  the end of each line.
+usecols : Sequence of Hashable or Callable, optional
+    Subset of columns to select, denoted either by column labels or column indices.
+    If list-like, all elements must either
+    be positional (i.e. integer indices into the document columns) or strings
+    that correspond to column names provided either by the user in ``names`` or
+    inferred from the document header row(s). If ``names`` are given, the document
+    header row(s) are not taken into account. For example, a valid list-like
+    ``usecols`` parameter would be ``[0, 1, 2]`` or ``[&#39;foo&#39;, &#39;bar&#39;, &#39;baz&#39;]``.
+    Element order is ignored, so ``usecols=[0, 1]`` is the same as ``[1, 0]``.
+    To instantiate a :class:`~pandas.DataFrame` from ``data`` with element order
+    preserved use ``pd.read_csv(data, usecols=[&#39;foo&#39;, &#39;bar&#39;])[[&#39;foo&#39;, &#39;bar&#39;]]``
+    for columns in ``[&#39;foo&#39;, &#39;bar&#39;]`` order or
+    ``pd.read_csv(data, usecols=[&#39;foo&#39;, &#39;bar&#39;])[[&#39;bar&#39;, &#39;foo&#39;]]``
+    for ``[&#39;bar&#39;, &#39;foo&#39;]`` order.
+
+    If callable, the callable function will be evaluated against the column
+    names, returning names where the callable function evaluates to ``True``. An
+    example of a valid callable argument would be ``lambda x: x.upper() in
+    [&#39;AAA&#39;, &#39;BBB&#39;, &#39;DDD&#39;]``. Using this parameter results in much faster
+    parsing time and lower memory usage.
+dtype : dtype or dict of {Hashable : dtype}, optional
+    Data type(s) to apply to either the whole dataset or individual columns.
+    E.g., ``{&#39;a&#39;: np.float64, &#39;b&#39;: np.int32, &#39;c&#39;: &#39;Int64&#39;}``
+    Use ``str`` or ``object`` together with suitable ``na_values`` settings
+    to preserve and not interpret ``dtype``.
+    If ``converters`` are specified, they will be applied INSTEAD
+    of ``dtype`` conversion.
+
+    .. versionadded:: 1.5.0
+
+        Support for ``defaultdict`` was added. Specify a ``defaultdict`` as input where
+        the default determines the ``dtype`` of the columns which are not explicitly
+        listed.
+engine : {&#39;c&#39;, &#39;python&#39;, &#39;pyarrow&#39;}, optional
+    Parser engine to use. The C and pyarrow engines are faster, while the python engine
+    is currently more feature-complete. Multithreading is currently only supported by
+    the pyarrow engine.
+
+    .. versionadded:: 1.4.0
+
+        The &#39;pyarrow&#39; engine was added as an *experimental* engine, and some features
+        are unsupported, or may not work correctly, with this engine.
+converters : dict of {Hashable : Callable}, optional
+    Functions for converting values in specified columns. Keys can either
+    be column labels or column indices.
+true_values : list, optional
+    Values to consider as ``True`` in addition to case-insensitive variants of &#39;True&#39;.
+false_values : list, optional
+    Values to consider as ``False`` in addition to case-insensitive variants of &#39;False&#39;.
+skipinitialspace : bool, default False
+    Skip spaces after delimiter.
+skiprows : int, list of int or Callable, optional
+    Line numbers to skip (0-indexed) or number of lines to skip (``int``)
+    at the start of the file.
+
+    If callable, the callable function will be evaluated against the row
+    indices, returning ``True`` if the row should be skipped and ``False`` otherwise.
+    An example of a valid callable argument would be ``lambda x: x in [0, 2]``.
+skipfooter : int, default 0
+    Number of lines at bottom of file to skip (Unsupported with ``engine=&#39;c&#39;``).
+nrows : int, optional
+    Number of rows of file to read. Useful for reading pieces of large files.
+na_values : Hashable, Iterable of Hashable or dict of {Hashable : Iterable}, optional
+    Additional strings to recognize as ``NA``/``NaN``. If ``dict`` passed, specific
+    per-column ``NA`` values.  By default the following values are interpreted as
+    ``NaN``: &quot; &quot;, &quot;#N/A&quot;, &quot;#N/A N/A&quot;, &quot;#NA&quot;, &quot;-1.#IND&quot;, &quot;-1.#QNAN&quot;, &quot;-NaN&quot;, &quot;-nan&quot;,
+    &quot;1.#IND&quot;, &quot;1.#QNAN&quot;, &quot;&lt;NA&gt;&quot;, &quot;N/A&quot;, &quot;NA&quot;, &quot;NULL&quot;, &quot;NaN&quot;, &quot;None&quot;,
+    &quot;n/a&quot;, &quot;nan&quot;, &quot;null &quot;.
+
+keep_default_na : bool, default True
+    Whether or not to include the default ``NaN`` values when parsing the data.
+    Depending on whether ``na_values`` is passed in, the behavior is as follows:
+
+    * If ``keep_default_na`` is ``True``, and ``na_values`` are specified, ``na_values``
+      is appended to the default ``NaN`` values used for parsing.
+    * If ``keep_default_na`` is ``True``, and ``na_values`` are not specified, only
+      the default ``NaN`` values are used for parsing.
+    * If ``keep_default_na`` is ``False``, and ``na_values`` are specified, only
+      the ``NaN`` values specified ``na_values`` are used for parsing.
+    * If ``keep_default_na`` is ``False``, and ``na_values`` are not specified, no
+      strings will be parsed as ``NaN``.
+
+    Note that if ``na_filter`` is passed in as ``False``, the ``keep_default_na`` and
+    ``na_values`` parameters will be ignored.
+na_filter : bool, default True
+    Detect missing value markers (empty strings and the value of ``na_values``). In
+    data without any ``NA`` values, passing ``na_filter=False`` can improve the
+    performance of reading a large file.
+verbose : bool, default False
+    Indicate number of ``NA`` values placed in non-numeric columns.
+
+    .. deprecated:: 2.2.0
+skip_blank_lines : bool, default True
+    If ``True``, skip over blank lines rather than interpreting as ``NaN`` values.
+parse_dates : bool, list of Hashable, list of lists or dict of {Hashable : list}, default False
+    The behavior is as follows:
+
+    * ``bool``. If ``True`` -&gt; try parsing the index. Note: Automatically set to
+      ``True`` if ``date_format`` or ``date_parser`` arguments have been passed.
+    * ``list`` of ``int`` or names. e.g. If ``[1, 2, 3]`` -&gt; try parsing columns 1, 2, 3
+      each as a separate date column.
+    * ``list`` of ``list``. e.g.  If ``[[1, 3]]`` -&gt; combine columns 1 and 3 and parse
+      as a single date column. Values are joined with a space before parsing.
+    * ``dict``, e.g. ``{&#39;foo&#39; : [1, 3]}`` -&gt; parse columns 1, 3 as date and call
+      result &#39;foo&#39;. Values are joined with a space before parsing.
+
+    If a column or index cannot be represented as an array of ``datetime``,
+    say because of an unparsable value or a mixture of timezones, the column
+    or index will be returned unaltered as an ``object`` data type. For
+    non-standard ``datetime`` parsing, use :func:`~pandas.to_datetime` after
+    :func:`~pandas.read_csv`.
+
+    Note: A fast-path exists for iso8601-formatted dates.
+infer_datetime_format : bool, default False
+    If ``True`` and ``parse_dates`` is enabled, pandas will attempt to infer the
+    format of the ``datetime`` strings in the columns, and if it can be inferred,
+    switch to a faster method of parsing them. In some cases this can increase
+    the parsing speed by 5-10x.
+
+    .. deprecated:: 2.0.0
+        A strict version of this argument is now the default, passing it has no effect.
+
+keep_date_col : bool, default False
+    If ``True`` and ``parse_dates`` specifies combining multiple columns then
+    keep the original columns.
+date_parser : Callable, optional
+    Function to use for converting a sequence of string columns to an array of
+    ``datetime`` instances. The default uses ``dateutil.parser.parser`` to do the
+    conversion. pandas will try to call ``date_parser`` in three different ways,
+    advancing to the next if an exception occurs: 1) Pass one or more arrays
+    (as defined by ``parse_dates``) as arguments; 2) concatenate (row-wise) the
+    string values from the columns defined by ``parse_dates`` into a single array
+    and pass that; and 3) call ``date_parser`` once for each row using one or
+    more strings (corresponding to the columns defined by ``parse_dates``) as
+    arguments.
+
+    .. deprecated:: 2.0.0
+       Use ``date_format`` instead, or read in as ``object`` and then apply
+       :func:`~pandas.to_datetime` as-needed.
+date_format : str or dict of column -&gt; format, optional
+    Format to use for parsing dates when used in conjunction with ``parse_dates``.
+    The strftime to parse time, e.g. :const:`&quot;%d/%m/%Y&quot;`. See
+    `strftime documentation
+    &lt;https://docs.python.org/3/library/datetime.html
+    #strftime-and-strptime-behavior&gt;`_ for more information on choices, though
+    note that :const:`&quot;%f&quot;` will parse all the way up to nanoseconds.
+    You can also pass:
+
+    - &quot;ISO8601&quot;, to parse any `ISO8601 &lt;https://en.wikipedia.org/wiki/ISO_8601&gt;`_
+        time string (not necessarily in exactly the same format);
+    - &quot;mixed&quot;, to infer the format for each element individually. This is risky,
+        and you should probably use it along with `dayfirst`.
+
+    .. versionadded:: 2.0.0
+dayfirst : bool, default False
+    DD/MM format dates, international and European format.
+cache_dates : bool, default True
+    If ``True``, use a cache of unique, converted dates to apply the ``datetime``
+    conversion. May produce significant speed-up when parsing duplicate
+    date strings, especially ones with timezone offsets.
+
+iterator : bool, default False
+    Return ``TextFileReader`` object for iteration or getting chunks with
+    ``get_chunk()``.
+chunksize : int, optional
+    Number of lines to read from the file per chunk. Passing a value will cause the
+    function to return a ``TextFileReader`` object for iteration.
+    See the `IO Tools docs
+    &lt;https://pandas.pydata.org/pandas-docs/stable/io.html#io-chunking&gt;`_
+    for more information on ``iterator`` and ``chunksize``.
+
+compression : str or dict, default &#39;infer&#39;
+    For on-the-fly decompression of on-disk data. If &#39;infer&#39; and &#39;filepath_or_buffer&#39; is
+    path-like, then detect compression from the following extensions: &#39;.gz&#39;,
+    &#39;.bz2&#39;, &#39;.zip&#39;, &#39;.xz&#39;, &#39;.zst&#39;, &#39;.tar&#39;, &#39;.tar.gz&#39;, &#39;.tar.xz&#39; or &#39;.tar.bz2&#39;
+    (otherwise no compression).
+    If using &#39;zip&#39; or &#39;tar&#39;, the ZIP file must contain only one data file to be read in.
+    Set to ``None`` for no decompression.
+    Can also be a dict with key ``&#39;method&#39;`` set
+    to one of {``&#39;zip&#39;``, ``&#39;gzip&#39;``, ``&#39;bz2&#39;``, ``&#39;zstd&#39;``, ``&#39;xz&#39;``, ``&#39;tar&#39;``} and
+    other key-value pairs are forwarded to
+    ``zipfile.ZipFile``, ``gzip.GzipFile``,
+    ``bz2.BZ2File``, ``zstandard.ZstdDecompressor``, ``lzma.LZMAFile`` or
+    ``tarfile.TarFile``, respectively.
+    As an example, the following could be passed for Zstandard decompression using a
+    custom compression dictionary:
+    ``compression={&#39;method&#39;: &#39;zstd&#39;, &#39;dict_data&#39;: my_compression_dict}``.
+
+    .. versionadded:: 1.5.0
+        Added support for `.tar` files.
+
+    .. versionchanged:: 1.4.0 Zstandard support.
+
+thousands : str (length 1), optional
+    Character acting as the thousands separator in numerical values.
+decimal : str (length 1), default &#39;.&#39;
+    Character to recognize as decimal point (e.g., use &#39;,&#39; for European data).
+lineterminator : str (length 1), optional
+    Character used to denote a line break. Only valid with C parser.
+quotechar : str (length 1), optional
+    Character used to denote the start and end of a quoted item. Quoted
+    items can include the ``delimiter`` and it will be ignored.
+quoting : {0 or csv.QUOTE_MINIMAL, 1 or csv.QUOTE_ALL, 2 or csv.QUOTE_NONNUMERIC, 3 or csv.QUOTE_NONE}, default csv.QUOTE_MINIMAL
+    Control field quoting behavior per ``csv.QUOTE_*`` constants. Default is
+    ``csv.QUOTE_MINIMAL`` (i.e., 0) which implies that only fields containing special
+    characters are quoted (e.g., characters defined in ``quotechar``, ``delimiter``,
+    or ``lineterminator``.
+doublequote : bool, default True
+   When ``quotechar`` is specified and ``quoting`` is not ``QUOTE_NONE``, indicate
+   whether or not to interpret two consecutive ``quotechar`` elements INSIDE a
+   field as a single ``quotechar`` element.
+escapechar : str (length 1), optional
+    Character used to escape other characters.
+comment : str (length 1), optional
+    Character indicating that the remainder of line should not be parsed.
+    If found at the beginning
+    of a line, the line will be ignored altogether. This parameter must be a
+    single character. Like empty lines (as long as ``skip_blank_lines=True``),
+    fully commented lines are ignored by the parameter ``header`` but not by
+    ``skiprows``. For example, if ``comment=&#39;#&#39;``, parsing
+    ``#empty\na,b,c\n1,2,3`` with ``header=0`` will result in ``&#39;a,b,c&#39;`` being
+    treated as the header.
+encoding : str, optional, default &#39;utf-8&#39;
+    Encoding to use for UTF when reading/writing (ex. ``&#39;utf-8&#39;``). `List of Python
+    standard encodings
+    &lt;https://docs.python.org/3/library/codecs.html#standard-encodings&gt;`_ .
+
+encoding_errors : str, optional, default &#39;strict&#39;
+    How encoding errors are treated. `List of possible values
+    &lt;https://docs.python.org/3/library/codecs.html#error-handlers&gt;`_ .
+
+    .. versionadded:: 1.3.0
+
+dialect : str or csv.Dialect, optional
+    If provided, this parameter will override values (default or not) for the
+    following parameters: ``delimiter``, ``doublequote``, ``escapechar``,
+    ``skipinitialspace``, ``quotechar``, and ``quoting``. If it is necessary to
+    override values, a ``ParserWarning`` will be issued. See ``csv.Dialect``
+    documentation for more details.
+on_bad_lines : {&#39;error&#39;, &#39;warn&#39;, &#39;skip&#39;} or Callable, default &#39;error&#39;
+    Specifies what to do upon encountering a bad line (a line with too many fields).
+    Allowed values are :
+
+    - ``&#39;error&#39;``, raise an Exception when a bad line is encountered.
+    - ``&#39;warn&#39;``, raise a warning when a bad line is encountered and skip that line.
+    - ``&#39;skip&#39;``, skip bad lines without raising or warning when they are encountered.
+
+    .. versionadded:: 1.3.0
+
+    .. versionadded:: 1.4.0
+
+        - Callable, function with signature
+          ``(bad_line: list[str]) -&gt; list[str] | None`` that will process a single
+          bad line. ``bad_line`` is a list of strings split by the ``sep``.
+          If the function returns ``None``, the bad line will be ignored.
+          If the function returns a new ``list`` of strings with more elements than
+          expected, a ``ParserWarning`` will be emitted while dropping extra elements.
+          Only supported when ``engine=&#39;python&#39;``
+
+    .. versionchanged:: 2.2.0
+
+        - Callable, function with signature
+          as described in `pyarrow documentation
+          &lt;https://arrow.apache.org/docs/python/generated/pyarrow.csv.ParseOptions.html
+          #pyarrow.csv.ParseOptions.invalid_row_handler&gt;`_ when ``engine=&#39;pyarrow&#39;``
+
+delim_whitespace : bool, default False
+    Specifies whether or not whitespace (e.g. ``&#39; &#39;`` or ``&#39;\t&#39;``) will be
+    used as the ``sep`` delimiter. Equivalent to setting ``sep=&#39;\s+&#39;``. If this option
+    is set to ``True``, nothing should be passed in for the ``delimiter``
+    parameter.
+
+    .. deprecated:: 2.2.0
+        Use ``sep=&quot;\s+&quot;`` instead.
+low_memory : bool, default True
+    Internally process the file in chunks, resulting in lower memory use
+    while parsing, but possibly mixed type inference.  To ensure no mixed
+    types either set ``False``, or specify the type with the ``dtype`` parameter.
+    Note that the entire file is read into a single :class:`~pandas.DataFrame`
+    regardless, use the ``chunksize`` or ``iterator`` parameter to return the data in
+    chunks. (Only valid with C parser).
+memory_map : bool, default False
+    If a filepath is provided for ``filepath_or_buffer``, map the file object
+    directly onto memory and access the data directly from there. Using this
+    option can improve performance because there is no longer any I/O overhead.
+float_precision : {&#39;high&#39;, &#39;legacy&#39;, &#39;round_trip&#39;}, optional
+    Specifies which converter the C engine should use for floating-point
+    values. The options are ``None`` or ``&#39;high&#39;`` for the ordinary converter,
+    ``&#39;legacy&#39;`` for the original lower precision pandas converter, and
+    ``&#39;round_trip&#39;`` for the round-trip converter.
+
+storage_options : dict, optional
+    Extra options that make sense for a particular storage connection, e.g.
+    host, port, username, password, etc. For HTTP(S) URLs the key-value pairs
+    are forwarded to ``urllib.request.Request`` as header options. For other
+    URLs (e.g. starting with &quot;s3://&quot;, and &quot;gcs://&quot;) the key-value pairs are
+    forwarded to ``fsspec.open``. Please see ``fsspec`` and ``urllib`` for more
+    details, and for more examples on storage options refer `here
+    &lt;https://pandas.pydata.org/docs/user_guide/io.html?
+    highlight=storage_options#reading-writing-remote-files&gt;`_.
+
+dtype_backend : {&#39;numpy_nullable&#39;, &#39;pyarrow&#39;}, default &#39;numpy_nullable&#39;
+    Back-end data type applied to the resultant :class:`DataFrame`
+    (still experimental). Behaviour is as follows:
+
+    * ``&quot;numpy_nullable&quot;``: returns nullable-dtype-backed :class:`DataFrame`
+      (default).
+    * ``&quot;pyarrow&quot;``: returns pyarrow-backed nullable :class:`ArrowDtype`
+      DataFrame.
+
+    .. versionadded:: 2.0
+
+Returns
+-------
+DataFrame or TextFileReader
+    A comma-separated values (csv) file is returned as two-dimensional
+    data structure with labeled axes.
+
+See Also
+--------
+DataFrame.to_csv : Write DataFrame to a comma-separated values (csv) file.
+read_table : Read general delimited file into DataFrame.
+read_fwf : Read a table of fixed-width formatted lines into DataFrame.
+
+Examples
+--------
+&gt;&gt;&gt; pd.read_csv(&#39;data.csv&#39;)  # doctest: +SKIP
+<span class=" -Color -Color-Red">Source:</span>   
+<span class=" -Color -Color-Blue">@</span>Appender<span class=" -Color -Color-Blue">(</span>
+    _doc_read_csv_and_table<span class=" -Color -Color-Blue">.</span>format<span class=" -Color -Color-Blue">(</span>
+        func_name<span class=" -Color -Color-Blue">=&quot;read_csv&quot;,</span>
+        summary<span class=" -Color -Color-Blue">=&quot;Read a comma-separated values (csv) file into DataFrame.&quot;,</span>
+        see_also_func_name<span class=" -Color -Color-Blue">=&quot;read_table&quot;,</span>
+        see_also_func_summary<span class=" -Color -Color-Blue">=&quot;Read general delimited file into DataFrame.&quot;,</span>
+        _default_sep<span class=" -Color -Color-Blue">=&quot;&#39;,&#39;&quot;,</span>
+        storage_options<span class=" -Color -Color-Blue">=</span>_shared_docs<span class=" -Color -Color-Blue">[&quot;storage_options&quot;],</span>
+        decompression_options<span class=" -Color -Color-Blue">=</span>_shared_docs<span class=" -Color -Color-Blue">[&quot;decompression_options&quot;]</span>
+        <span class=" -Color -Color-Blue">%</span> <span class=" -Color -Color-Blue">&quot;filepath_or_buffer&quot;,</span>
+    <span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Green">def</span> read_csv<span class=" -Color -Color-Blue">(</span>
+    filepath_or_buffer<span class=" -Color -Color-Blue">:</span> FilePath <span class=" -Color -Color-Blue">|</span> ReadCsvBuffer<span class=" -Color -Color-Blue">[</span>bytes<span class=" -Color -Color-Blue">]</span> <span class=" -Color -Color-Blue">|</span> ReadCsvBuffer<span class=" -Color -Color-Blue">[</span>str<span class=" -Color -Color-Blue">],</span>
+    <span class=" -Color -Color-Blue">*,</span>
+    sep<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">|</span> lib<span class=" -Color -Color-Blue">.</span>NoDefault <span class=" -Color -Color-Blue">=</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">,</span>
+    delimiter<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">|</span> lib<span class=" -Color -Color-Blue">.</span>NoDefault <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    <span class=" -Color -Color-Red"># Column and Index Locations and Names</span>
+    header<span class=" -Color -Color-Blue">:</span> int <span class=" -Color -Color-Blue">|</span> Sequence<span class=" -Color -Color-Blue">[</span>int<span class=" -Color -Color-Blue">]</span> <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">|</span> Literal<span class=" -Color -Color-Blue">[&quot;infer&quot;]</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&quot;infer&quot;,</span>
+    names<span class=" -Color -Color-Blue">:</span> Sequence<span class=" -Color -Color-Blue">[</span>Hashable<span class=" -Color -Color-Blue">]</span> <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">|</span> lib<span class=" -Color -Color-Blue">.</span>NoDefault <span class=" -Color -Color-Blue">=</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">,</span>
+    index_col<span class=" -Color -Color-Blue">:</span> IndexLabel <span class=" -Color -Color-Blue">|</span> Literal<span class=" -Color -Color-Blue">[</span><span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">]</span> <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    usecols<span class=" -Color -Color-Blue">:</span> UsecolsArgType <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    <span class=" -Color -Color-Red"># General Parsing Configuration</span>
+    dtype<span class=" -Color -Color-Blue">:</span> DtypeArg <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    engine<span class=" -Color -Color-Blue">:</span> CSVEngine <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    converters<span class=" -Color -Color-Blue">:</span> Mapping<span class=" -Color -Color-Blue">[</span>Hashable<span class=" -Color -Color-Blue">,</span> Callable<span class=" -Color -Color-Blue">]</span> <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    true_values<span class=" -Color -Color-Blue">:</span> list <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    false_values<span class=" -Color -Color-Blue">:</span> list <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    skipinitialspace<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    skiprows<span class=" -Color -Color-Blue">:</span> list<span class=" -Color -Color-Blue">[</span>int<span class=" -Color -Color-Blue">]</span> <span class=" -Color -Color-Blue">|</span> int <span class=" -Color -Color-Blue">|</span> Callable<span class=" -Color -Color-Blue">[[</span>Hashable<span class=" -Color -Color-Blue">],</span> bool<span class=" -Color -Color-Blue">]</span> <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    skipfooter<span class=" -Color -Color-Blue">:</span> int <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Cyan">0</span><span class=" -Color -Color-Blue">,</span>
+    nrows<span class=" -Color -Color-Blue">:</span> int <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    <span class=" -Color -Color-Red"># NA and Missing Data Handling</span>
+    na_values<span class=" -Color -Color-Blue">:</span> Hashable
+    <span class=" -Color -Color-Blue">|</span> Iterable<span class=" -Color -Color-Blue">[</span>Hashable<span class=" -Color -Color-Blue">]</span>
+    <span class=" -Color -Color-Blue">|</span> Mapping<span class=" -Color -Color-Blue">[</span>Hashable<span class=" -Color -Color-Blue">,</span> Iterable<span class=" -Color -Color-Blue">[</span>Hashable<span class=" -Color -Color-Blue">]]</span>
+    <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    keep_default_na<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    na_filter<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    verbose<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">|</span> lib<span class=" -Color -Color-Blue">.</span>NoDefault <span class=" -Color -Color-Blue">=</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">,</span>
+    skip_blank_lines<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    <span class=" -Color -Color-Red"># Datetime Handling</span>
+    parse_dates<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">|</span> Sequence<span class=" -Color -Color-Blue">[</span>Hashable<span class=" -Color -Color-Blue">]</span> <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    infer_datetime_format<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">|</span> lib<span class=" -Color -Color-Blue">.</span>NoDefault <span class=" -Color -Color-Blue">=</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">,</span>
+    keep_date_col<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">|</span> lib<span class=" -Color -Color-Blue">.</span>NoDefault <span class=" -Color -Color-Blue">=</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">,</span>
+    date_parser<span class=" -Color -Color-Blue">:</span> Callable <span class=" -Color -Color-Blue">|</span> lib<span class=" -Color -Color-Blue">.</span>NoDefault <span class=" -Color -Color-Blue">=</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">,</span>
+    date_format<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">|</span> dict<span class=" -Color -Color-Blue">[</span>Hashable<span class=" -Color -Color-Blue">,</span> str<span class=" -Color -Color-Blue">]</span> <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    dayfirst<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    cache_dates<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    <span class=" -Color -Color-Red"># Iteration</span>
+    iterator<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    chunksize<span class=" -Color -Color-Blue">:</span> int <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    <span class=" -Color -Color-Red"># Quoting, Compression, and File Format</span>
+    compression<span class=" -Color -Color-Blue">:</span> CompressionOptions <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&quot;infer&quot;,</span>
+    thousands<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    decimal<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&quot;.&quot;,</span>
+    lineterminator<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    quotechar<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&#39;&quot;&#39;,</span>
+    quoting<span class=" -Color -Color-Blue">:</span> int <span class=" -Color -Color-Blue">=</span> csv<span class=" -Color -Color-Blue">.</span>QUOTE_MINIMAL<span class=" -Color -Color-Blue">,</span>
+    doublequote<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span><span class=" -Color -Color-Blue">,</span>
+    escapechar<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    comment<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    encoding<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    encoding_errors<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&quot;strict&quot;,</span>
+    dialect<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">|</span> csv<span class=" -Color -Color-Blue">.</span>Dialect <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    <span class=" -Color -Color-Red"># Error Handling</span>
+    on_bad_lines<span class=" -Color -Color-Blue">:</span> str <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Blue">&quot;error&quot;,</span>
+    <span class=" -Color -Color-Red"># Internal</span>
+    delim_whitespace<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">|</span> lib<span class=" -Color -Color-Blue">.</span>NoDefault <span class=" -Color -Color-Blue">=</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">,</span>
+    low_memory<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">=</span> _c_parser_defaults<span class=" -Color -Color-Blue">[&quot;low_memory&quot;],</span>
+    memory_map<span class=" -Color -Color-Blue">:</span> bool <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span><span class=" -Color -Color-Blue">,</span>
+    float_precision<span class=" -Color -Color-Blue">:</span> Literal<span class=" -Color -Color-Blue">[&quot;high&quot;,</span> <span class=" -Color -Color-Blue">&quot;legacy&quot;]</span> <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    storage_options<span class=" -Color -Color-Blue">:</span> StorageOptions <span class=" -Color -Color-Blue">|</span> <span class=" -Color -Color-Green">None</span> <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">None</span><span class=" -Color -Color-Blue">,</span>
+    dtype_backend<span class=" -Color -Color-Blue">:</span> DtypeBackend <span class=" -Color -Color-Blue">|</span> lib<span class=" -Color -Color-Blue">.</span>NoDefault <span class=" -Color -Color-Blue">=</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">,</span>
+<span class=" -Color -Color-Blue">)</span> <span class=" -Color -Color-Blue">-&gt;</span> DataFrame <span class=" -Color -Color-Blue">|</span> TextFileReader<span class=" -Color -Color-Blue">:</span>
+    <span class=" -Color -Color-Green">if</span> keep_date_col <span class=" -Color -Color-Green">is</span> <span class=" -Color -Color-Green">not</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">:</span>
+        <span class=" -Color -Color-Red"># GH#55569</span>
+        warnings<span class=" -Color -Color-Blue">.</span>warn<span class=" -Color -Color-Blue">(</span>
+            <span class=" -Color -Color-Blue">&quot;The &#39;keep_date_col&#39; keyword in pd.read_csv is deprecated and &quot;</span>
+            <span class=" -Color -Color-Blue">&quot;will be removed in a future version. Explicitly remove unwanted &quot;</span>
+            <span class=" -Color -Color-Blue">&quot;columns after parsing instead.&quot;,</span>
+            FutureWarning<span class=" -Color -Color-Blue">,</span>
+            stacklevel<span class=" -Color -Color-Blue">=</span>find_stack_level<span class=" -Color -Color-Blue">(),</span>
+        <span class=" -Color -Color-Blue">)</span>
+    <span class=" -Color -Color-Green">else</span><span class=" -Color -Color-Blue">:</span>
+        keep_date_col <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span>
+
+    <span class=" -Color -Color-Green">if</span> lib<span class=" -Color -Color-Blue">.</span>is_list_like<span class=" -Color -Color-Blue">(</span>parse_dates<span class=" -Color -Color-Blue">):</span>
+        <span class=" -Color -Color-Red"># GH#55569</span>
+        depr <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span>
+        <span class=" -Color -Color-Red"># error: Item &quot;bool&quot; of &quot;bool | Sequence[Hashable] | None&quot; has no</span>
+        <span class=" -Color -Color-Red"># attribute &quot;__iter__&quot; (not iterable)</span>
+        <span class=" -Color -Color-Green">if</span> <span class=" -Color -Color-Green">not</span> all<span class=" -Color -Color-Blue">(</span>is_hashable<span class=" -Color -Color-Blue">(</span>x<span class=" -Color -Color-Blue">)</span> <span class=" -Color -Color-Green">for</span> x <span class=" -Color -Color-Green">in</span> parse_dates<span class=" -Color -Color-Blue">):</span>  <span class=" -Color -Color-Red"># type: ignore[union-attr]</span>
+            depr <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span>
+        <span class=" -Color -Color-Green">elif</span> isinstance<span class=" -Color -Color-Blue">(</span>parse_dates<span class=" -Color -Color-Blue">,</span> dict<span class=" -Color -Color-Blue">)</span> <span class=" -Color -Color-Green">and</span> any<span class=" -Color -Color-Blue">(</span>
+            lib<span class=" -Color -Color-Blue">.</span>is_list_like<span class=" -Color -Color-Blue">(</span>x<span class=" -Color -Color-Blue">)</span> <span class=" -Color -Color-Green">for</span> x <span class=" -Color -Color-Green">in</span> parse_dates<span class=" -Color -Color-Blue">.</span>values<span class=" -Color -Color-Blue">()</span>
+        <span class=" -Color -Color-Blue">):</span>
+            depr <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">True</span>
+        <span class=" -Color -Color-Green">if</span> depr<span class=" -Color -Color-Blue">:</span>
+            warnings<span class=" -Color -Color-Blue">.</span>warn<span class=" -Color -Color-Blue">(</span>
+                <span class=" -Color -Color-Blue">&quot;Support for nested sequences for &#39;parse_dates&#39; in pd.read_csv &quot;</span>
+                <span class=" -Color -Color-Blue">&quot;is deprecated. Combine the desired columns with pd.to_datetime &quot;</span>
+                <span class=" -Color -Color-Blue">&quot;after parsing instead.&quot;,</span>
+                FutureWarning<span class=" -Color -Color-Blue">,</span>
+                stacklevel<span class=" -Color -Color-Blue">=</span>find_stack_level<span class=" -Color -Color-Blue">(),</span>
+            <span class=" -Color -Color-Blue">)</span>
+
+    <span class=" -Color -Color-Green">if</span> infer_datetime_format <span class=" -Color -Color-Green">is</span> <span class=" -Color -Color-Green">not</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">:</span>
+        warnings<span class=" -Color -Color-Blue">.</span>warn<span class=" -Color -Color-Blue">(</span>
+            <span class=" -Color -Color-Blue">&quot;The argument &#39;infer_datetime_format&#39; is deprecated and will &quot;</span>
+            <span class=" -Color -Color-Blue">&quot;be removed in a future version. &quot;</span>
+            <span class=" -Color -Color-Blue">&quot;A strict version of it is now the default, see &quot;</span>
+            <span class=" -Color -Color-Blue">&quot;https://pandas.pydata.org/pdeps/0004-consistent-to-datetime-parsing.html. &quot;</span>
+            <span class=" -Color -Color-Blue">&quot;You can safely remove this argument.&quot;,</span>
+            FutureWarning<span class=" -Color -Color-Blue">,</span>
+            stacklevel<span class=" -Color -Color-Blue">=</span>find_stack_level<span class=" -Color -Color-Blue">(),</span>
+        <span class=" -Color -Color-Blue">)</span>
+
+    <span class=" -Color -Color-Green">if</span> delim_whitespace <span class=" -Color -Color-Green">is</span> <span class=" -Color -Color-Green">not</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">:</span>
+        <span class=" -Color -Color-Red"># GH#55569</span>
+        warnings<span class=" -Color -Color-Blue">.</span>warn<span class=" -Color -Color-Blue">(</span>
+            <span class=" -Color -Color-Blue">&quot;The &#39;delim_whitespace&#39; keyword in pd.read_csv is deprecated and &quot;</span>
+            <span class=" -Color -Color-Blue">&quot;will be removed in a future version. Use ``sep=&#39;\\s+&#39;`` instead&quot;,</span>
+            FutureWarning<span class=" -Color -Color-Blue">,</span>
+            stacklevel<span class=" -Color -Color-Blue">=</span>find_stack_level<span class=" -Color -Color-Blue">(),</span>
+        <span class=" -Color -Color-Blue">)</span>
+    <span class=" -Color -Color-Green">else</span><span class=" -Color -Color-Blue">:</span>
+        delim_whitespace <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span>
+
+    <span class=" -Color -Color-Green">if</span> verbose <span class=" -Color -Color-Green">is</span> <span class=" -Color -Color-Green">not</span> lib<span class=" -Color -Color-Blue">.</span>no_default<span class=" -Color -Color-Blue">:</span>
+        <span class=" -Color -Color-Red"># GH#55569</span>
+        warnings<span class=" -Color -Color-Blue">.</span>warn<span class=" -Color -Color-Blue">(</span>
+            <span class=" -Color -Color-Blue">&quot;The &#39;verbose&#39; keyword in pd.read_csv is deprecated and &quot;</span>
+            <span class=" -Color -Color-Blue">&quot;will be removed in a future version.&quot;,</span>
+            FutureWarning<span class=" -Color -Color-Blue">,</span>
+            stacklevel<span class=" -Color -Color-Blue">=</span>find_stack_level<span class=" -Color -Color-Blue">(),</span>
+        <span class=" -Color -Color-Blue">)</span>
+    <span class=" -Color -Color-Green">else</span><span class=" -Color -Color-Blue">:</span>
+        verbose <span class=" -Color -Color-Blue">=</span> <span class=" -Color -Color-Green">False</span>
+
+    <span class=" -Color -Color-Red"># locals() should never be modified</span>
+    kwds <span class=" -Color -Color-Blue">=</span> locals<span class=" -Color -Color-Blue">().</span>copy<span class=" -Color -Color-Blue">()</span>
+    <span class=" -Color -Color-Green">del</span> kwds<span class=" -Color -Color-Blue">[&quot;filepath_or_buffer&quot;]</span>
+    <span class=" -Color -Color-Green">del</span> kwds<span class=" -Color -Color-Blue">[&quot;sep&quot;]</span>
+
+    kwds_defaults <span class=" -Color -Color-Blue">=</span> _refine_defaults_read<span class=" -Color -Color-Blue">(</span>
+        dialect<span class=" -Color -Color-Blue">,</span>
+        delimiter<span class=" -Color -Color-Blue">,</span>
+        delim_whitespace<span class=" -Color -Color-Blue">,</span>
+        engine<span class=" -Color -Color-Blue">,</span>
+        sep<span class=" -Color -Color-Blue">,</span>
+        on_bad_lines<span class=" -Color -Color-Blue">,</span>
+        names<span class=" -Color -Color-Blue">,</span>
+        defaults<span class=" -Color -Color-Blue">={&quot;delimiter&quot;:</span> <span class=" -Color -Color-Blue">&quot;,&quot;},</span>
+        dtype_backend<span class=" -Color -Color-Blue">=</span>dtype_backend<span class=" -Color -Color-Blue">,</span>
+    <span class=" -Color -Color-Blue">)</span>
+    kwds<span class=" -Color -Color-Blue">.</span>update<span class=" -Color -Color-Blue">(</span>kwds_defaults<span class=" -Color -Color-Blue">)</span>
+
+    <span class=" -Color -Color-Green">return</span> _read<span class=" -Color -Color-Blue">(</span>filepath_or_buffer<span class=" -Color -Color-Blue">,</span> kwds<span class=" -Color -Color-Blue">)</span>
+<span class=" -Color -Color-Red">File:</span>      ~/miniconda3/lib/python3.13/site-packages/pandas/io/parsers/readers.py
+<span class=" -Color -Color-Red">Type:</span>      function
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="writing-code">
+<h2>Writing code<a class="headerlink" href="#writing-code" title="Permalink to this heading">#</a></h2>
+<p>Writing code in a <code class="docutils literal notranslate"><span class="pre">notebook</span></code> is pretty normal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_10_nums</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_10_nums</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>If you messed something up and want to revert to an older version of a code in a cell, use <code class="docutils literal notranslate"><span class="pre">Ctrl+Z</span></code> or to go back <code class="docutils literal notranslate"><span class="pre">Ctrl+Shift+Z</span></code> (use ‘Cmd’ instead of ‘Ctrl’ on macOS).</p>
+<p>For a full list of all keyboard shortcuts, check <code class="docutils literal notranslate"><span class="pre">Help</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Keyboard</span> <span class="pre">Shortcuts</span></code>.</p>
+<section id="the-interactive-workflow-input-output-history">
+<h3>The interactive workflow: input, output, history<a class="headerlink" href="#the-interactive-workflow-input-output-history" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Notebooks</span></code> provide various options for <code class="docutils literal notranslate"><span class="pre">inputs</span></code> and <code class="docutils literal notranslate"><span class="pre">outputs</span></code>, while also allowing to access the <code class="docutils literal notranslate"><span class="pre">history</span></code> of <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">commands</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="o">+</span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>you can access the output of the most recent cell by simply using <code class="docutils literal notranslate"><span class="pre">_</span></code>. The underscore variable will continously be updated everytime you run a cell</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="o">+</span><span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>same goes for the second-to-last output via a double underscore, the third-to-last output via a triple underscore and so on</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">___</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can suppress the <code class="docutils literal notranslate"><span class="pre">storage</span></code> and <code class="docutils literal notranslate"><span class="pre">rendering</span></code> of <code class="docutils literal notranslate"><span class="pre">output</span></code> if you append <code class="docutils literal notranslate"><span class="pre">;</span></code> to the last <code class="docutils literal notranslate"><span class="pre">cell</span></code> (this comes in handy when plotting with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, for example):</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span><span class="o">+</span><span class="mi">20</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As this notation get’s messy real quick, use other ways to access earlier outputs using the <code class="docutils literal notranslate"><span class="pre">_N</span></code> and <code class="docutils literal notranslate"><span class="pre">Out[N]</span></code> variables. Here, ‘N’ refers to the continuous numbers of the cells that you see to the left of each cell. For example, if you want to refer to the recently executed cell with the number ‘10’, use the following syntax:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_10</span> <span class="o">==</span> <span class="n">Out</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Previous inputs are available, too:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_i</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>and to be even more explicit use <code class="docutils literal notranslate"><span class="pre">%history</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">history</span> -n 1-5
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-the-underlying-operating-system">
+<h3>Accessing the underlying operating system<a class="headerlink" href="#accessing-the-underlying-operating-system" title="Permalink to this heading">#</a></h3>
+<p>Through <code class="docutils literal notranslate"><span class="pre">notebooks</span></code> you can also access the underlying <code class="docutils literal notranslate"><span class="pre">operating</span> <span class="pre">system</span></code> and <code class="docutils literal notranslate"><span class="pre">communicate</span></code> with it as you would do in e.g. a <code class="docutils literal notranslate"><span class="pre">terminal</span></code> via <code class="docutils literal notranslate"><span class="pre">bash</span></code>. For example, the following command ouputs the path to the folder in which you were when opening the jupyter notebook:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pwd
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/cfiebach/PyCharmMiscProject
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">files</span> <span class="o">=</span> <span class="o">!</span>ls
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;My current directory&#39;s files:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My current directory&#39;s files:
+[&#39;fnirs_mne_test.ipynb&#39;, &#39;PyCharmMiscProject.iml&#39;, &#39;script.py&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="magic-functions">
+<h3>Magic functions<a class="headerlink" href="#magic-functions" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">IPython</span></code> has all kinds of <code class="docutils literal notranslate"><span class="pre">magic</span> <span class="pre">functions</span></code>. <code class="docutils literal notranslate"><span class="pre">Magic</span> <span class="pre">functions</span></code> are prefixed by <code class="docutils literal notranslate"><span class="pre">%</span></code> or <code class="docutils literal notranslate"><span class="pre">%%,</span></code> and typically take their <code class="docutils literal notranslate"><span class="pre">arguments</span></code> without <code class="docutils literal notranslate"><span class="pre">parentheses</span></code>, <code class="docutils literal notranslate"><span class="pre">quotes</span></code> or even <code class="docutils literal notranslate"><span class="pre">commas</span></code> for convenience. You already encountered one <code class="docutils literal notranslate"><span class="pre">magic</span> <span class="pre">function</span></code> above, namely the ‘%history’ command.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Line</span> <span class="pre">magics</span></code> take a single <code class="docutils literal notranslate"><span class="pre">%</span></code> and <code class="docutils literal notranslate"><span class="pre">cell</span> <span class="pre">magics</span></code> are prefixed with two <code class="docutils literal notranslate"><span class="pre">%%</span></code>.</p>
+<p>Some useful magic functions are:</p>
+<div class="pst-scrollable-table-container"><table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Magic Name</p></th>
+<th class="head"><p>Effect</p></th>
+</tr>
+</thead>
+</table>
+</div>
+<p>You can run <code class="docutils literal notranslate"><span class="pre">%magic</span></code> to get a list of <code class="docutils literal notranslate"><span class="pre">magic</span> <span class="pre">functions</span></code> or <code class="docutils literal notranslate"><span class="pre">%quickref</span></code> for a reference sheet.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">magic</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Line</span></code> vs <code class="docutils literal notranslate"><span class="pre">cell</span> <span class="pre">magics</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">timeit</span> list(range(1000))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.05 μs ± 33.8 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it
+<span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>391 ns ± 1.79 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Line</span> <span class="pre">magics</span></code> can be used even inside <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">blocks</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">size</span> <span class="o">=</span> <span class="n">i</span><span class="o">*</span><span class="mi">100</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;size:&#39;</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+    <span class="o">%</span><span class="k">timeit</span> list(range(size))
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>size: 100 306 ns ± 1.94 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+size: 200 499 ns ± 3.2 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+size: 300 923 ns ± 3.19 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+size: 400 1.52 μs ± 4.55 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Magics</span></code> can do anything they want with their input, so it doesn’t have to be valid <code class="docutils literal notranslate"><span class="pre">Python</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">bash</span>
+echo &quot;My shell is:&quot; $SHELL
+echo &quot;My disk usage is:&quot;
+df -h
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>My shell is: /bin/zsh
+My disk usage is:
+Filesystem        Size    Used   Avail Capacity iused ifree %iused  Mounted on
+/dev/disk3s1s1   926Gi    10Gi   729Gi     2%    426k  4.3G    0%   /
+devfs            204Ki   204Ki     0Bi   100%     705     0  100%   /dev
+/dev/disk3s6     926Gi    20Gi   729Gi     3%      20  7.6G    0%   /System/Volumes/VM
+/dev/disk3s2     926Gi   6.6Gi   729Gi     1%    1.2k  7.6G    0%   /System/Volumes/Preboot
+/dev/disk3s4     926Gi   4.9Mi   729Gi     1%      55  7.6G    0%   /System/Volumes/Update
+/dev/disk1s2     500Mi   6.0Mi   482Mi     2%       1  4.9M    0%   /System/Volumes/xarts
+/dev/disk1s1     500Mi   5.8Mi   482Mi     2%      29  4.9M    0%   /System/Volumes/iSCPreboot
+/dev/disk1s3     500Mi   1.5Mi   482Mi     1%      98  4.9M    0%   /System/Volumes/Hardware
+/dev/disk3s5     926Gi   159Gi   729Gi    18%    1.4M  7.6G    0%   /System/Volumes/Data
+map auto_home      0Bi     0Bi     0Bi   100%       0     0     -   /System/Volumes/Data/home
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another interesting <code class="docutils literal notranslate"><span class="pre">cell</span> <span class="pre">magic</span></code>: create any <code class="docutils literal notranslate"><span class="pre">file</span></code> you want <code class="docutils literal notranslate"><span class="pre">locally</span></code> from the <code class="docutils literal notranslate"><span class="pre">notebook</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>%%writefile test.txt
+This is a test file!
+It can contain anything I want...
+
+And more...
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing test.txt
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>cat<span class="w"> </span>test.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is a test file!
+It can contain anything I want...
+
+And more...
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s see what other <code class="docutils literal notranslate"><span class="pre">magics</span></code> are currently defined in the <code class="docutils literal notranslate"><span class="pre">system</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">lsmagic</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Available line magics:
+%alias  %alias_magic  %autoawait  %autocall  %automagic  %autosave  %bookmark  %cat  %cd  %clear  %code_wrap  %colors  %conda  %config  %connect_info  %cp  %debug  %dhist  %dirs  %doctest_mode  %ed  %edit  %env  %gui  %hist  %history  %killbgscripts  %ldir  %less  %lf  %lk  %ll  %load  %load_ext  %loadpy  %logoff  %logon  %logstart  %logstate  %logstop  %ls  %lsmagic  %lx  %macro  %magic  %mamba  %man  %matplotlib  %micromamba  %mkdir  %more  %mv  %notebook  %page  %pastebin  %pdb  %pdef  %pdoc  %pfile  %pinfo  %pinfo2  %pip  %popd  %pprint  %precision  %prun  %psearch  %psource  %pushd  %pwd  %pycat  %pylab  %qtconsole  %quickref  %recall  %rehashx  %reload_ext  %rep  %rerun  %reset  %reset_selective  %rm  %rmdir  %run  %save  %sc  %set_env  %store  %sx  %system  %tb  %time  %timeit  %unalias  %unload_ext  %uv  %who  %who_ls  %whos  %xdel  %xmode
+
+Available cell magics:
+%%!  %%HTML  %%SVG  %%bash  %%capture  %%code_wrap  %%debug  %%file  %%html  %%javascript  %%js  %%latex  %%markdown  %%perl  %%prun  %%pypy  %%python  %%python2  %%python3  %%ruby  %%script  %%sh  %%svg  %%sx  %%system  %%time  %%timeit  %%writefile
+
+Automagic is ON, % prefix IS NOT needed for line magics.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="writing-latex">
+<h2>Writing latex<a class="headerlink" href="#writing-latex" title="Permalink to this heading">#</a></h2>
+<p>Let’s use <code class="docutils literal notranslate"><span class="pre">%%latex</span></code> to render a block of <code class="docutils literal notranslate"><span class="pre">latex</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%latex</span>
+<span class="sb">$$</span><span class="nb">F</span><span class="o">(</span><span class="nb">k</span><span class="o">)</span><span class="nb"> </span><span class="o">=</span><span class="nb"> </span><span class="nv">\int</span><span class="nb">_{</span><span class="o">-</span><span class="nv">\infty</span><span class="nb">}^{</span><span class="nv">\infty</span><span class="nb">} f</span><span class="o">(</span><span class="nb">x</span><span class="o">)</span><span class="nb"> e^{</span><span class="m">2</span><span class="nv">\pi</span><span class="nb"> i k} </span><span class="nv">\mathrm</span><span class="nb">{d} x</span><span class="s">$$</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[F(k) = \int_{-\infty}^{\infty} f(x) e^{2\pi i k} \mathrm{d} x\]</div>
+</div>
+</div>
+<section id="running-normal-python-code-execution-and-errors">
+<h3>Running normal Python code: execution and errors<a class="headerlink" href="#running-normal-python-code-execution-and-errors" title="Permalink to this heading">#</a></h3>
+<p>Not only can you input normal <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">code</span></code>, you can even paste straight from a <code class="docutils literal notranslate"><span class="pre">Python</span></code> or <code class="docutils literal notranslate"><span class="pre">IPython</span> <span class="pre">shell</span> <span class="pre">session</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="c1"># Fibonacci series:</span>
+<span class="o">...</span> <span class="c1"># the sum of two elements defines the next</span>
+<span class="o">...</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">while</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+<span class="o">...</span>     <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="o">...</span>     <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+1
+2
+3
+5
+8
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+   <span class="o">...</span><span class="p">:</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+   <span class="o">...</span><span class="p">:</span>     
+</pre></div>
+</div>
+</div>
+</div>
+<p>And when your code produces errors, you can control how they are displayed with the <code class="docutils literal notranslate"><span class="pre">%xmode</span></code> magic:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%writefile</span> mod.py
+
+<span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Writing mod.py
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now let’s call the function <code class="docutils literal notranslate"><span class="pre">g</span></code> with an argument that would produce an error:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">mod</span>
+<span class="n">mod</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">24</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">mod</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">mod</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">File ~/PyCharmMiscProject/mod.py:6,</span> in <span class="ni">g</span><span class="nt">(y)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nn">File ~/PyCharmMiscProject/mod.py:3,</span> in <span class="ni">f</span><span class="nt">(x)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">return</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="ne">ZeroDivisionError</span>: float division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">xmode</span> plain
+<span class="n">mod</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception reporting mode: Plain
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+
+  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">25</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+    <span class="n">mod</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="n">File</span> <span class="o">~/</span><span class="n">PyCharmMiscProject</span><span class="o">/</span><span class="n">mod</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">6</span> <span class="ow">in</span> <span class="n">g</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="n">File</span> <span class="o">~/</span><span class="n">PyCharmMiscProject</span><span class="o">/</span><span class="n">mod</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">3</span> <span class="ow">in</span> <span class="n">f</span>
+    <span class="k">return</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="ne">ZeroDivisionError</span>: float division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">xmode</span> verbose
+<span class="n">mod</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception reporting mode: Verbose
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">26</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;xmode&#39;</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">mod</span><span class="o">.</span><span class="n">g</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nn">File ~/PyCharmMiscProject/mod.py:6,</span> in <span class="ni">g</span><span class="nt">(y=0)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span><span class="w"> </span><span class="nf">g</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">y</span><span class="o">+</span><span class="mi">1</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nn">File ~/PyCharmMiscProject/mod.py:3,</span> in <span class="ni">f</span><span class="nt">(x=1)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">def</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">3</span>     <span class="k">return</span> <span class="mf">1.0</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">x</span><span class="o">-</span><span class="mi">1</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="ne">ZeroDivisionError</span>: float division by zero
+</pre></div>
+</div>
+</div>
+</div>
+<p>The default <code class="docutils literal notranslate"><span class="pre">%xmode</span></code> is “context”, which shows additional context but not all local variables.  Let’s restore that one for the rest of our session.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">xmode</span> context
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception reporting mode: Context
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="running-code-in-other-languages-with-special-magics">
+<h2>Running code in other languages with special <code class="docutils literal notranslate"><span class="pre">%%</span></code> magics<a class="headerlink" href="#running-code-in-other-languages-with-special-magics" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%perl</span>
+<span class="nv">@months</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;July&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;August&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;September&quot;</span><span class="p">);</span>
+<span class="k">print</span><span class="w"> </span><span class="nv">$months</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>July
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%ruby</span>
+<span class="nb">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;world&quot;</span>
+<span class="nb">puts</span><span class="w"> </span><span class="s2">&quot;Hello </span><span class="si">#{</span><span class="nb">name</span><span class="o">.</span><span class="n">capitalize</span><span class="si">}</span><span class="s2">!&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World!
+</pre></div>
+</div>
+</div>
+</div>
+<section id="raw-input-in-the-notebook">
+<h3>Raw Input in the notebook<a class="headerlink" href="#raw-input-in-the-notebook" title="Permalink to this heading">#</a></h3>
+<p>Since <code class="docutils literal notranslate"><span class="pre">1.0</span></code> the <code class="docutils literal notranslate"><span class="pre">IPython</span> <span class="pre">notebook</span> <span class="pre">web</span> <span class="pre">application</span></code> supports <code class="docutils literal notranslate"><span class="pre">raw_input</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">enjoy</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Are you enjoying this tutorial? &#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Answer:&#39;</span><span class="p">,</span> <span class="n">enjoy</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Answer: yes
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting-in-the-notebook">
+<h3>Plotting in the notebook<a class="headerlink" href="#plotting-in-the-notebook" title="Permalink to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Notebooks</span></code> support a variety of fantastic <code class="docutils literal notranslate"><span class="pre">plotting</span> <span class="pre">options</span></code>, including <code class="docutils literal notranslate"><span class="pre">static</span></code> and <code class="docutils literal notranslate"><span class="pre">interactive</span></code> graphics. This <code class="docutils literal notranslate"><span class="pre">magic</span></code> configures <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> to <code class="docutils literal notranslate"><span class="pre">render</span></code> its <code class="docutils literal notranslate"><span class="pre">figures</span></code> <code class="docutils literal notranslate"><span class="pre">inline</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;A little chirp&quot;</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">gcf</span><span class="p">()</span>  <span class="c1"># let&#39;s keep the figure object around for later...</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b8145ad9bb775eea964eb80032c1b975569084343440be968eee60beffb1de9b.png" src="../_images/b8145ad9bb775eea964eb80032c1b975569084343440be968eee60beffb1de9b.png" />
+</div>
+</div>
+<p>You can note a few things here: ‘python’ cannot by itself calculate the ‘sinus function’, it is found in the ‘numpy’ package, which was first importated (and then referred to as ‘np’). Also, we load ‘matplotlib.pyplot’, a package for creating and formating plots. With ‘plt.gcf()’ we can refer to the current figure, and with ‘fig = plt.gcf()’ we can give it a handle that we can later use (e.g., if we have produced other figures in the meantime).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">plotly.figure_factory</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ff</span>
+
+<span class="c1"># Add histogram data</span>
+<span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">x3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">x4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span>
+
+<span class="c1"># Group data together</span>
+<span class="n">hist_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">x3</span><span class="p">,</span> <span class="n">x4</span><span class="p">]</span>
+
+<span class="n">group_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Group 1&#39;</span><span class="p">,</span> <span class="s1">&#39;Group 2&#39;</span><span class="p">,</span> <span class="s1">&#39;Group 3&#39;</span><span class="p">,</span> <span class="s1">&#39;Group 4&#39;</span><span class="p">]</span>
+
+<span class="c1"># Create distplot with custom bin_size</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">(</span><span class="n">hist_data</span><span class="p">,</span> <span class="n">group_labels</span><span class="p">,</span> <span class="n">bin_size</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">plotly.figure_factory</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ff</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Add histogram data</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;plotly&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now this most likely has produced an error - because you do not have the plotly function installed. We will fix this next week!</p>
+</section>
+</section>
+<section id="saving-a-notebook">
+<h2>Saving a Notebook<a class="headerlink" href="#saving-a-notebook" title="Permalink to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Jupyter</span> <span class="pre">Notebooks</span></code> <code class="docutils literal notranslate"><span class="pre">autosave</span></code>, so you don’t have to worry about losing code too much. At the top of the page you can usually see the current save status:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Last</span> <span class="pre">Checkpoint:</span> <span class="pre">2</span> <span class="pre">minutes</span> <span class="pre">ago</span> <span class="pre">(unsaved</span> <span class="pre">changes)</span></code>
+<code class="docutils literal notranslate"><span class="pre">Last</span> <span class="pre">Checkpoint:</span> <span class="pre">a</span> <span class="pre">few</span> <span class="pre">seconds</span> <span class="pre">ago</span> <span class="pre">(autosaved)</span></code></p>
+<p>If you want to save a notebook on purpose, either click on <code class="docutils literal notranslate"><span class="pre">File</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">Save</span></code> and <code class="docutils literal notranslate"><span class="pre">Checkpoint</span></code> or press <code class="docutils literal notranslate"><span class="pre">Ctrl+S</span></code>.</p>
+</section>
+<section id="id3">
+<h2>To Jupyter &amp; beyond<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<img align="center" src="https://raw.githubusercontent.com/PeerHerholz/ML-DL_workshop_SynAGE/master/lecture/static/jupyter_example.png" alt="logo" title="jupyter" width="800" height="400" /> </section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./introduction"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="introduction_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction II</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="introduction_3_new.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction III</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#before-we-get-started">Before we get started…</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectives">Objectives 📍</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-jupyter-beyond">To Jupyter &amp; beyond</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">To Jupyter &amp; beyond</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Before we get started</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#files-tab">Files Tab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-notebook">The Notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#header">Header</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#body">Body</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modality">Modality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mouse-navigation">Mouse navigation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keyboard-navigation">Keyboard Navigation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-following-shortcuts-have-been-found-to-be-the-most-useful-in-day-to-day-tasks">The following shortcuts have been found to be the most useful in day-to-day tasks:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-cells">Markdown Cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#markdown-basics">Markdown basics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#embedded-code">Embedded code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#github-flavored-markdown-gfm">Github flavored markdown (GFM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-html">General HTML</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-files">Local files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#security-of-local-files">Security of local files</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-cells">Code cells</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tab-completion">Tab Completion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-help">Get Help</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-code">Writing code</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-interactive-workflow-input-output-history">The interactive workflow: input, output, history</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-the-underlying-operating-system">Accessing the underlying operating system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#magic-functions">Magic functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-latex">Writing latex</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-normal-python-code-execution-and-errors">Running normal Python code: execution and errors</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-code-in-other-languages-with-special-magics">Running code in other languages with special <code class="docutils literal notranslate"><span class="pre">%%</span></code> magics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-input-in-the-notebook">Raw Input in the notebook</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-in-the-notebook">Plotting in the notebook</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#saving-a-notebook">Saving a Notebook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">To Jupyter &amp; beyond</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Peer Herholz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
